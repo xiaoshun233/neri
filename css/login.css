@@ -1,0 +1,347 @@
+/*登录背景图部分*/
+.login_bg{
+    width: 100%;
+    height: calc(100vh);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -100;
+    object-fit: cover;
+}
+/*登录时间部分*/
+a{
+    text-decoration: none;
+    text-align: center;
+    color: #ffffff;
+}
+.time_mdw{
+    margin-top: calc(3vh);
+    font-size: 20px;
+    font-weight: 700;
+}
+.time_hm{
+    margin-top: calc(15vh);
+    font-size: 78px;
+}
+.tip_item{
+    font-size: 20px;
+    color: red;
+    margin-top: calc(15vh);
+}
+/*登录覆盖后的道具部分*/
+.login{
+    width: 100%;
+    height: calc(100vh);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 100;
+    text-align: center;
+    display: none;
+}
+.item_all{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+.login_head{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: calc(18vh);
+    visibility: hidden;
+}
+/*变化效果*/
+body .change_bg{
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.8s linear;
+}
+body .change_appear{
+    display: block;
+}
+body .change_img{
+    filter: blur(5px);
+}
+body .item_all .item_appear{
+    visibility: visible;
+    transition: all 0.8s linear;
+}
+a .time_disappear{
+    visibility: hidden;
+    transform:translateY(calc(-5vh));
+    filter: blur(2px);
+    transition: all 0.05s ease;
+}
+/*用户名和密码*/
+.name{
+    display: block;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    width: 320px;
+    visibility: hidden;
+    margin: calc(1vh) auto calc(2vh);
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    text-align: center;
+    outline: 0;
+    letter-spacing: 3px;
+    height: 40px;
+    line-height: 40px;
+}
+/* 输入用户名 */
+.username{
+    display: block;
+    color: white;
+    margin: calc(1vh) auto;
+    background-color: rgba(77, 77, 77, 0.8);
+    border: 2px solid rgb(249, 249, 249);
+    outline: 0;
+    text-indent: 20px;
+    width: 320px;
+    border-radius: 20px;
+    line-height: 40px;
+}
+/* 输入登陆密码 */
+.login_password{
+    margin:calc(5vh) auto 0 ;
+    border-radius: 20px;
+    width: 320px;
+    line-height: 40px;
+    background-color: rgba(77, 77, 77, 0.8);
+    border: 2px solid rgb(249, 249, 249);
+    text-align: left;
+    text-indent: 20px;
+    position: relative;
+}
+.login-tip{
+    color: red;
+    font-weight: 700;
+}
+#password{
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+    line-height: 40px;
+    outline: 0; 
+}
+.login_password_enter{
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    right: 5px;
+    color: rgb(168, 168, 168);
+    line-height: 40px;
+}
+/*注册和变更用户*/
+.modify{
+    font-size: 12px;
+    margin: 10px auto;
+    text-align: right;
+    width: 320px;
+    visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.modify a{
+    text-decoration: underline;
+    margin-right: 15px;
+}
+/*输入框部分*/
+.login_input{
+    width: 100%;
+    height: calc(100vh);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color:rgba(255, 255, 255, 0.8) ;
+    text-align: center;
+    display: none;
+}
+.login_input>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+/* 第一个提示 */
+.prompt{
+    margin: 100px auto 0; 
+    width: 300px;
+    text-align: left;
+    color: #ff6c6c;
+    font-weight: 700;
+}
+.login-button{
+    border: 5px solid rgb(254, 161, 237);
+    border-radius: 5px;
+    display: inline-block;
+    height: 30px;
+    margin-left: 20px;
+}
+.btn-mail{
+    font-weight: 700;
+    color: #ffffff;
+    width: 150px;
+    line-height: 30px;
+    background-color: rgb(255, 90, 153);
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+}
+.mail-token{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+}
+.mail-token .login-mailtoken{
+    width: 40%;
+    border-radius: 10px;
+    line-height: 40px;
+    height: 40px;
+    background-color: rgba(255, 174, 174, 0.8);
+    border: 2px solid rgb(255, 224, 224);
+    resize: none;
+    outline:rgb(255, 224, 224) ;
+    font-size: 15px;
+    font-weight: 700;
+    overflow: hidden;
+    display:block; 
+}
+/* 输入框样式 */
+.login_textarea,.login_textarea_1,.login_textarea_2,.login_textarea_3,.login-mail
+{
+    border-radius: 10px;
+    width: 300px;
+    line-height: 40px;
+    height: 40px;
+    background-color: rgba(255, 174, 174, 0.8);
+    border: 2px solid rgb(255, 224, 224);
+    resize: none;
+    outline:rgb(255, 224, 224) ;
+    font-size: 15px;
+    font-weight: 700;
+    overflow: hidden;
+    display:block; 
+    margin:0 auto;
+}
+.box_enter{
+    display: flex;
+    font-size: 12px;
+    margin: 5px auto;
+    text-align: right;
+    width: 280px;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 注册提示 */
+.enrolltips{
+    color: red;
+}
+/* 按钮 */
+.login_enter,.enroll_enter{
+    border: 2px #ff7d31 solid;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    background-color: #ff9c9c;
+    color: #ffffff;
+    display: none;
+}
+.enroll_password{
+    margin-top: calc(2vh);
+    width: 300px;
+    margin: 0 auto;
+    display: none;
+}
+/* 输入框样式 */
+.prompt_1,.prompt_2{
+    margin: 0 auto; 
+    width: 300px;
+    text-align: left;
+    color: #ff6c6c;
+    font-weight: 700;
+}
+/* 上传图片样式 */
+.btn-box{
+    font-weight: 700;
+    color: #ffffff;
+    width: 60px;
+    line-height: 30px;
+    background-color: rgb(255, 90, 153);
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+}
+.login_input label{
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+.login_input label span{
+    color: #ffffff;
+}
+/* 弹出框 */
+.view_img{
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    border:5px #fefefe solid;
+    margin-left: 20px;
+}
+/* 裁剪框 */
+.module-cropper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 10000;
+}
+#cropperImg {
+    max-width:100%;
+    object-fit: none;
+}
+.module-cropper-content {
+    width: 78%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.module-cropper-bg{
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+.cropper-img-box{
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.module-cropper-btn {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+.module-cropper-btn span {
+    color: #fff;
+    font-size: 13px;
+}

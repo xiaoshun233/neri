@@ -1,0 +1,19 @@
+{
+    "php.validate.executablePath": "C:\\wamp64\\bin\\php\\php7.4.0\\php.exe",
+    "php.debug.executablePath": "C:\\wamp64\\bin\\php\\php7.4.0\\php.exe",
+    "phpserver.phpConfigPath": "C:\\wamp64\\bin\\php\\php7.4.0\\php.ini",
+    "phpserver.phpPath": "C:\\wamp64\\bin\\php\\php7.4.0\\php.exe"
+}
+
+
+
+mysql重置密码
+ alter user user() identified by '';
+
+查询端口号
+show global variables like 'port';
+
+插入数据库
+source e:/neri.sql;
+
+

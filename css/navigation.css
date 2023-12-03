@@ -1,0 +1,137 @@
+﻿.main{
+    margin: 70px auto;
+}
+/*头部标题*/
+.head{
+    width: 100%;
+    line-height: 150px;
+    text-align: center;
+    background-color: rgb(130, 130, 130);
+    color: #fff;
+    font-size: 30px;
+}
+/*滚动条*/
+.marquee{
+    background-color:rgb(33, 0, 167);
+    border-radius:50px;
+    box-shadow:0px 0px 10px 10px #ffffff;
+    padding:2px;
+    margin: 15px auto;
+    overflow: hidden;
+}
+.marquee_text{
+    font-size: 18px;
+    margin: 0;
+    line-height: 30px;
+    background:-webkit-linear-gradient(left, #2fc3fe, #49ff35,#e7ff34);
+    background-clip:border-box ;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*顶部分类部分*/
+.top{
+    max-width: 1600px;
+    width: 86%;
+    border-radius: 10px;
+    background-color: rgba(242, 241, 241, 0.7);
+    margin: 20px auto;
+    padding-top: 5px;
+    box-shadow: 0 0 5px 5px rgb(244, 244, 244);
+}
+/*小标题部分*/
+.top h3{
+    border-bottom:1px solid rgb(204, 204, 204);
+    width: 90%;
+    margin: 20px auto 0;
+    font-size: 30px;
+    font-family: "仿宋";
+    text-align: left;
+    color: #9b9b9b;
+}
+.tags{   
+    line-height: 50px;
+}
+.tags .tag_free{
+    color: rgb(132, 123, 123);
+    width: 100px;
+    height: 30px;
+    margin: 0 20px 0 65px;
+    font-size: 18px;
+    text-shadow: 1px 1px 15px;
+    display: inline-block;
+}
+.tags a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+.types{
+    line-height: 50px;    
+}
+.types .type_free{
+    color: rgb(63, 63, 63);
+    width: 100px;
+    height: 30px;
+    margin: 0 20px 0 65px;
+    font-size: 18px;
+    text-shadow: 1px 1px 20px;
+    display: inline-block;
+}
+.types a:hover{
+    color: greenyellow;
+    text-decoration: underline;
+}
+/*中间盒子部分*/
+.middle{
+    margin: 10px auto;
+    max-width: 1600px
+}
+.game_ver,.novel_ver,.comic_ver,.anime_ver{
+    text-align: center;
+}
+/*中心内容底部*/
+.pages{
+    height: 50px;
+    text-align: center;
+    margin: 60px auto;
+}
+.pages a{
+    color: rgb(143, 143, 143);
+    background-color: rgb(197, 197, 197);
+    width: 30px;
+    line-height: 28px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 3px;
+}
+.pages .next{
+    color: rgb(143, 143, 143);
+    background-color: rgb(197, 197, 197);
+    width: 60px;
+    line-height: 28px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 15px;
+}
+/*现在所在位置*/
+.pages .now{
+    background-color: rgb(0, 180, 180);
+    width: 30px;
+    line-height: 28px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: inline-block;
+    color: rgb(143, 143, 143);
+}
+.tags .tag_now{
+    color: blue;
+    width: 100px;
+    height: 50px;
+    margin: 0 20px 0 65px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: underline;
+    display: inline-block;
+    text-shadow: 1px 1px 30px;
+}

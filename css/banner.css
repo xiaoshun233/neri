@@ -1,0 +1,72 @@
+/*广告层*/
+.banner{
+    width: 400px;
+    height: 220px;
+    margin:0 30px;
+    overflow: hidden;
+    border-radius: 21px;
+    position: relative;
+}
+#btn{
+    width: 1200px;
+}
+#btn li{
+    float: left;
+}
+#btn img{
+    width: 400px;
+    height: 220px;
+    object-fit: cover;
+}
+.banner .btn_click{
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+}
+.banner button{
+    width: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: #716564;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+    border: 0;
+}
+.banner .btn_first{
+    background-color: #f60;
+}
+.turn_1{
+    transform: translateX(0);
+    transition: all 1s ease;
+}
+.turn_2{
+    transform: translateX(-400px);
+    transition: all 1s ease;
+}
+.turn_3{
+    transform: translateX(-800px);
+    transition: all 1s ease;
+}
+.tips{
+    width: 400px;
+    text-align: center;
+    margin:20px 30px;
+    font-size: 15px;
+    color: #0015fd;
+    font-weight: 700;
+}
+.tips #counter{
+    color: #ff0000;
+    font-size: 17px;
+}
+/*广告位招租*/
+.btn_normal{
+    text-align: center;
+    line-height: 220px;
+    font-size: 30px;
+    color: #ff0000;
+    font-weight: 700;
+}

@@ -1,0 +1,30 @@
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch for Javascript(Javascript)",
+            "type": "node",
+            "request": "launch",
+            "program": "${file}"
+        },
+        {
+            "name": "Listen for Xdebug(php)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003
+        },
+        {
+            "name": "Launch currently open script(php)",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9003
+        },
+        {
+            "type": "java",
+            "name": "Current File(java)",
+            "request": "launch",
+            "mainClass": "${file}",
+            "console": "externalTerminal"
+        }
+    ]

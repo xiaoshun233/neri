@@ -1,0 +1,18 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "php.validate.executablePath": "D:/wamp64/bin/php/php8.2.0/php.exe",
+    "php.debug.executablePath": "D:/wamp64/bin/php/php8.2.0/php.exe",
+    "editor.codeActionsOnSave": {
+        
+    },
+    "explorer.sortOrder": "type",
+    "java.jdt.ls.java.home": "D:/Java",
+    "editor.fontSize": 16,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "phpserver.phpConfigPath": "D:/wamp64/bin/php/php8.2.0/php.ini",
+    "phpserver.phpPath": "D:/wamp64/bin/php/php8.2.0/php.exe",
+    "php.validate.enable": false,
+    "phpserver.router": "",
+    "phpserver.ip": "www.neri.com",
+}
