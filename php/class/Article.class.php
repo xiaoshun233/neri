@@ -48,8 +48,8 @@ class Article{
 
     //投稿文章
     public function Contributearticles(){
-        include './../link/public/mysql.php';
-        include_once './../method/mysqlPreprocess.php';
+        require './../link/public/mysql.php';
+        require_once './../method/mysqlPreprocess.php';
         // 提交基础信息
         $row = mysqlPreprocess($link,"SELECT count(*) as count from items",false);
         $this ->number = $row[0]['count'];
@@ -61,14 +61,14 @@ class Article{
         $row = mysqlPreprocess($link,$sql,'sssss',$this->name,$this->coverpath,$this->author,$this->type,$this->number);
         if(!$row){
             $link -> rollback();
-            return ["result"=>"$link->error","status"=>false,"msg"=>"基础信息上传错误"];
+            return false;
         }
         $cover[3] = str_replace(' ','+',$cover[3]);
         $coverBase64 = base64_decode($cover[3]);
         $filerow = file_put_contents("../{$coverpath}", $coverBase64);
         if(!$filerow){
             $link -> rollback();
-            return ["result"=>"","status"=>false,"msg"=>"图片上传错误"];
+            return false;
         }
 
         //提交内容信息
@@ -82,7 +82,7 @@ class Article{
         if(!$row){
             $link -> rollback();
             $this->deletefile($coverpath);
-            return ["result"=>"$link->error","status"=>false,"msg"=>"内容上传错误"];
+            return false;
         }
 
         //提交截图
@@ -97,13 +97,13 @@ class Article{
             if(!$row){
                 $link -> rollback();
                 $this->deletefile($coverpath);
-                return ["result"=>"$link->error","status"=>false,"msg"=>"截图上传错误"];
+                return false;
             }
         }
 
         //提交事务
         $link -> commit();
-        return ["result"=>"","status"=>true,"msg"=>"上传成功"];
+        return true;
     }
 
     private function deletefile($path){

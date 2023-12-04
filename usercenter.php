@@ -83,6 +83,18 @@
                         <span>用户权限</span>
                     </a>
                 </li>
+                <li id="user-alteremail">
+                    <a href="?page=alteremail">
+                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                        <span>修改邮箱</span>
+                    </a>
+                </li>
+                <li id="user-alterpassword">
+                    <a href="?page=alterpassword">
+                        <div class="icon"><i class="fa-solid fa-key"></i></div>
+                        <span>修改密码</span>
+                    </a>
+                </li>
                 <li id="user-exit">
                     <a href="javascript:void(0);">
                         <div class="icon"><i class="fa-solid fa-power-off"></i></div>
@@ -93,7 +105,11 @@
         </div>
     </div>
     <div id="user-item">
-
+        <?php 
+            if(isset($_GET['type'])){
+                
+            }
+        ?>
     </div>
 </div>
 <!--页脚-->

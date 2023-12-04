@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="css/login.css" type="text/css">
     <!-- 引入jq库 -->
     <?php require "./php/link/public/jquery.php"; ?>
-    <!-- 引入cropperjs -->
-    <?php require "./php/link/public/cropperjs.php"; ?>
     <!-- 引入bootstrap -->
     <?php require "./php/link/public/bootstrap.php"; ?>
     <!-- 引入php连接数据库 -->
@@ -75,22 +73,8 @@
         </div>
     </div>
 </div>
-<!-- 裁剪图片弹窗 -->
-<div class="module-cropper" style="display: none;">
-    <div class="module-cropper-content">
-        <div class="module-cropper-bg">
-            <!-- 包装图像或画布元素 -->
-            <div class="cropper-img-box">
-                <img id="cropperImg" src=""/>
-            </div>
-        </div>
-        <div class="module-cropper-btn">
-            <span class="cancelCropper">取消</span>
-            <span class="rotateCropper">旋转</span>
-            <span class="cropperSucess">完成</span>
-        </div>
-    </div>
-</div>
+<!-- 引入cropperjs -->
+<?php require "./php/link/public/cropperjs.php"; ?>
 <script src="./js/public/login.js" type="module"></script>
 </body>
 </html>

@@ -26,19 +26,19 @@
 <?php require "./php/link/public/nav.php"; ?>
 <div class="main">
     <!-- 投稿表单 -->
-    <form method="post" enctype="multipart/form-data" class="submission">
-        <div class="title">标题：<input type="text" name="title" id="input_title"></div>
+    <form class="submission">
+        <div class="title">标题：<input type="text" id="input_title"></div>
         <div class="type">
         <label for="type">分类:</label>
-        <select id="type" name="type" class="select">
+        <select id="type" class="select">
             <option value="小说">小说</option>
             <option value="漫画">漫画</option>
             <option value="动画">动画</option>
             <option value="游戏">游戏</option>
         </select>
-        <div class="about"><span>简介:</span><textarea name="about" id="input_about"></textarea></div>
+        <div class="about"><span>简介:</span><textarea id="input_about"></textarea></div>
         </div>
-        <div class="cover">封面图:<input type="file" name="cover" class="cover_img" id="cover">
+        <div class="cover">封面图:<input type="file" class="cover_img" id="cover">
             <label for="cover" class="img_input_css">上传图片</label>
             <div class="cover_preview"></div>
         </div>
@@ -63,7 +63,7 @@
         <span class="tips"><?php if(isset($from_message)){echo $from_message;} ?></span>
     </form>
     <!--广告部分-->
-    <div class="banner" onmouseover="btn_interval_off()" onmouseout="btn_interval_on()">
+    <div class="banner">
         <ul id="btn" class="turn_1">
             <li><img src="./images/advertising/btn_1.jpg"></li>
             <li><img src="./images/advertising/btn_2.png"></li>
