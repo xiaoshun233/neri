@@ -19,72 +19,6 @@
 <!-- 头部导航栏 -->
 <?php require "./php/link/public/nav.php"; ?>
 <div class="scrollBar">&nbsp;</div>
-<style>
-    #user{
-        width: 1080px;
-        height: 800px;
-        margin: 100px auto;
-        border-radius:10px;
-        display: flex;
-    }
-    #user-nav{
-        width: 20%;
-        height: 100%;
-        border-radius: 10px 0 0 10px;
-        background-color: #f2f2f2;
-    }
-    #user-item{
-        width: 80%;
-        height: 100%;
-        border-radius: 0 10px 10px 0;
-        background-color: #f8f8f8;
-    }
-    #user-nav-top{
-        width: 90%;
-        height: 20%;
-        margin: 0 auto;
-        border-bottom: 1px soild #111111;
-    }
-    #user-nav-bottom{
-        width: 90%;
-        height: 80%;
-        margin: 0 auto;
-    } 
-    #user-headshot{
-        text-align: center;
-        margin-top: 10%;
-    }
-    #user-headshot img{
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-    #user-nickname,#user-attend{
-        text-align: center;
-        margin-top: 4%;
-        font-family: "微软雅黑";
-    }
-    #user-nickname span{
-        font-size: 16px;
-        font-weight: 700;
-    }
-    #user-attend div{
-        width: 100px;
-        height: 20px;
-        margin: 0 auto;
-        font-size: 14px;
-        background-color: #dddddd;
-        line-height: 20px;
-        color: #ffffff;
-        border-radius: 50px;
-        text-align: center;
-    }
-    #user-attend span{
-        color:#aaaaaa;
-        font-size: 12px;
-        letter-spacing: 1px;
-    }
-</style>
 <div id="user">
     <div id='user-nav'>
         <div id="user-nav-top">
@@ -96,11 +30,66 @@
             </div>
             <div id="user-attend">
                 <div>签到</div>
-                <span>签到送0-5黑猫币</span>
+                <span>签到送1-2黑猫币</span>
             </div>
         </div>
         <div id="user-nav-bottom">
-
+            <ul id="user-nav-item">
+                <li id="user-data">
+                    <a href="?page=data">
+                        <div class="icon"><i class="fa-regular fa-address-card"></i></div>
+                        <span>我的资料</span>
+                    </a>
+                </li>
+                <li id="user-collection">
+                    <a href="?page=collection">
+                        <div class="icon"><i class="fa-regular fa-star"></i></div>
+                        <span>我的收藏</span>
+                    </a>
+                </li>
+                <li id="user-contribute">
+                    <a href="?page=contribute">
+                        <div class="icon"><i class="fa-regular fa-file-lines"></i></div>
+                        <span>我的投稿</span>
+                    </a>
+                </li>
+                <li id="user-comment">
+                    <a href="?page=comment">
+                        <div class="icon"><i class="fa-regular fa-comment-dots"></i></div>
+                        <span>我的评论</span>
+                    </a>
+                </li>
+                <li id="user-buy">
+                    <a href="?page=buy">
+                        <div class="icon"><i class="fa-regular fa-clipboard"></i></div>
+                        <span>购买记录</span>
+                    </a>
+                </li>
+                <li id="user-support">
+                    <a href="?page=support">
+                        <div class="icon"><i class="fa-solid fa-yen-sign"></i></div>
+                        <span>支持小窝</span>
+                    </a>
+                </li>
+                <li id="user-record">
+                    <a href="?page=record">
+                        <div class="icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <span>捐助记录</span>
+                    </a>
+                </li>
+                <li id="user-permission">
+                    <a href="?page=permission">
+                        <div class="icon"><i class="fa-regular fa-user"></i></div>
+                        <span>用户权限</span>
+                    </a>
+                </li>
+                <li id="user-exit">
+                    <a href="javascript:void(0);">
+                        <div class="icon"><i class="fa-solid fa-power-off"></i></div>
+                        <span>安全退出</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <div id="user-item">
@@ -115,5 +104,6 @@
 <!--侧边按钮-->
 <?php require "./php/link/public/sidebutton.php"; ?>
 </body>
+<script src="./js/public/usercenter.js" type="module"></script>
 <script src="./js/public/public.js" type="module"></script>
 </html>

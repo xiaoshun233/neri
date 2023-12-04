@@ -1,0 +1,14 @@
+import { getQueryString } from './../method/getQueryString.js';
+import { setCookie } from './../method/cookie.js';
+window.addEventListener('load',function(){
+    let pagetype = getQueryString('page');
+    const button = document.querySelector(`#user-${pagetype}`);
+    const icon = document.querySelector(`#user-${pagetype} .icon`);
+    icon.style.color = "#ffffff"
+    button.style.backgroundColor = "#bbbbbb"
+})
+const exitlogin = document.querySelector('#user-exit')
+exitlogin.addEventListener('click',function(){
+    setCookie('userkey',"",-3600);
+    
+})

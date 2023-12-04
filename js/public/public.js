@@ -59,6 +59,8 @@ function search_click(){
 import {checklogin} from './../method/checklogin.js';
 import {getCookie,setCookie} from './../method/cookie.js';
 import {loadXMLDoc} from './../method/ajax.js';
+
+
 window.addEventListener('load',function(){
     const navuser = document.querySelector('.user_center');
     const navlogin = document.querySelector('.goto_login');

@@ -305,8 +305,9 @@ const re = /^[a-zA-Z0-9_\u4e00-\u9fa5]/
     }
     enrolltips.innerHTML = ""
 })
-
+import {} from './../method/md5.js';
 import {loadXMLDoc} from './../method/ajax.js';
+console.log(md5("5441341","xiaoshun233"));
 //提交表单时内容不能为空
 const enrollBtn = document.querySelector(".enroll_enter");
 enrollBtn.addEventListener('click',signIn);
@@ -338,7 +339,9 @@ function signIn(){
     if(CheakStrNotnull(baseSrc)){
         formdata['headshot'] = baseSrc;
     }
-    // enrollBtn.removeEventListener('click',signIn);
+    enrollBtn.removeEventListener('click',signIn);
+    formdata['password'] = md5(formdata['password'])
+    formdata['checkPassword'] = md5(formdata['checkPassword']) 
     let result = loadXMLDoc('../../php/interface/register.php',formdata);
     if(result['status']) {
         enrolltips.innerHTML  = result['msg'];

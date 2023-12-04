@@ -2,7 +2,7 @@
 // error_reporting(0);
 
 
-$link = new mysqli('127.0.0.1','root','','neri的小窝',3306);
+$link = new mysqli('127.0.0.1','root','','neri的小窝',3305);
 //设置数据库输出格式
 $link ->query("set names utf8");
 //关闭mysql报错报告

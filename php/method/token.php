@@ -38,3 +38,8 @@ function getToken($name){
     require_once './../link/public/session.php';
     return isset($_SESSION[$name]) ? $_SESSION[$name] : false;
 }
+
+function removeToken($name){
+    require_once './../link/public/session.php';
+    unset($_SESSION[$name]);
+}

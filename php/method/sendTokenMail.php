@@ -1,7 +1,7 @@
 <?php
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
-require './PHPMailer/vendor/autoload.php';
+require 'PHPMailer/vendor/autoload.php';
 
 function sendtokenMail($email,$mailtitle,$mailmessage){
     try{
