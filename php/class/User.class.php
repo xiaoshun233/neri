@@ -39,12 +39,13 @@ class User{
         require_once "./../method/mysqlPreprocess.php";
         require_once "./../method/token.php";
         //判断用户名和密码是否匹配
-        $result =  ["result"=>"","status"=>false,"msg"=>""];
+        
         try{
+            $result = false;
             $this->encryptpassword();
             $sql = "SELECT username 
-            from users 
-            where (username = ? and password = ?) or (useremail = ? and password = ?);";
+                    from users 
+                    where (username = ? and password = ?) or (useremail = ? and password = ?);";
             $row = mysqlPreprocess($link,$sql,"ssss",$this->username,$this->password,$this->username,$this->password);
             if(empty($row)){
                 throw new Exception('用户不存在');
@@ -52,13 +53,12 @@ class User{
             if(!($this->updatatoken())){
                 throw new Exception('更新用户token失败');
             }
-            $result['status'] = true;
-            $result['msg'] = '登陆成功';
-            $result['result'] = $this -> get('usertoken');
+
+            $result = $this -> get('usertoken');
             $link -> commit();
         }
         catch(Exception $e){
-            $result['msg'] = $e ->getMessage();
+            $result = false;
         }
         finally{
             return $result;
