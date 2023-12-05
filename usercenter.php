@@ -35,8 +35,8 @@
         </div>
         <div id="user-nav-bottom">
             <ul id="user-nav-item">
-                <li id="user-data">
-                    <a href="?page=data">
+                <li id="user-mydata">
+                    <a href="?page=mydata">
                         <div class="icon"><i class="fa-regular fa-address-card"></i></div>
                         <span>我的资料</span>
                     </a>
@@ -83,6 +83,18 @@
                         <span>用户权限</span>
                     </a>
                 </li>
+                <li id="user-alteremail">
+                    <a href="?page=alteremail">
+                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                        <span>修改邮箱</span>
+                    </a>
+                </li>
+                <li id="user-alterpassword">
+                    <a href="?page=alterpassword">
+                        <div class="icon"><i class="fa-solid fa-key"></i></div>
+                        <span>修改密码</span>
+                    </a>
+                </li>
                 <li id="user-exit">
                     <a href="javascript:void(0);">
                         <div class="icon"><i class="fa-solid fa-power-off"></i></div>
@@ -93,7 +105,33 @@
         </div>
     </div>
     <div id="user-item">
-
+        <?php   
+            $page=isset($_GET['page'])?$_GET['page']:"";
+            if($page=="mydata"){
+                require "./php/link/usercenter/#.php";
+            }
+            else if($page=="collection"){
+                require "./php/link/usercenter/item-collection.php";
+            }
+            else if($page=="contribute"){
+                require "./php/link/usercenter/#.php";
+            }
+            else if($page=="comment"){
+                require "./php/link/usercenter/#.php";
+            }
+            else if($page=="buy"){
+                require "./php/link/usercenter/item-buy.php";
+            }
+            else if($page=="permission"){
+                require "./php/link/usercenter/#.php";
+            }
+            else if($page=="alterpassword"){
+                require "./php/link/usercenter/#.php";
+            }
+            else if($page=="alteremail"){
+                require "./php/link/usercenter/#.php";
+            }
+        ?>
     </div>
 </div>
 <!--页脚-->

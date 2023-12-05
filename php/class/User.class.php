@@ -41,6 +41,7 @@ class User{
         //判断用户名和密码是否匹配
         $result =  ["result"=>"","status"=>false,"msg"=>""];
         try{
+            $this->encryptpassword();
             $sql = "SELECT username 
             from users 
             where (username = ? and password = ?) or (useremail = ? and password = ?);";
@@ -65,7 +66,13 @@ class User{
     }
 
 
-
+    public function encryptpassword(){
+        require_once "./../method/encrypt.php";
+        $this->password = encrypt($this->password,$this->username);
+        if(!empty($this->checkPassword)){
+            $this->checkPassword = encrypt($this->checkPassword,$this->username);
+        }
+    }
 
 
     /* 用户注册 */
@@ -116,7 +123,7 @@ class User{
             if($this->password!==$this->checkPassword){
                 throw new Exception('两次输入的密码不一致');
             }
-
+            $this->encryptpassword();
             //检查用户名
             $row=mysqlPreprocess($link,"select username from users where (username= ?)",'s',$this->username);
             //判断用户名是否存在

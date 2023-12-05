@@ -1,55 +1,15 @@
-// 节流完整版，可选前缘节流或延迟节流
-function throttle(fn, delay, isImmediate = true){
-    // isImmediate 为 true 时使用前缘节流，首次触发会立即执行，为 false 时使用延迟节流，首次触发不会立即执行
-    let last = Date.now();
-    return function (){
-        let now = Date.now();
-        if(isImmediate){
-            fn.apply(this, arguments);
-            isImmediate = false;
-            last = now;
-        }
-        if(now - last >= delay){
-            fn.apply(this, arguments);
-            last = now;
-        }
-    }
-}
 
 
-
-//检查登录函数
-function check(){//检查是否登录
-    $.ajax({
-    type: "post", //接收方式
-    url: "php/detect_4.php",  //地址  
-    data: {},//提交到后端的数据
-    dataType: "json",//数据格式
-    async: false,//异步传输
-    success: function(check){
-        login_check=check;
-    },
-    error:function(check){
-        console.log(check);
-    }
-    });
-    return login_check;
-}
-
-function cleartips(){
-    tips.innerHTML = ""
-}
-
-let Formtipclear = throttle(cleartips,2000,true)
-let Form = document.querySelector('.submission')
-Form.addEventListener('input',Formtipclear)
+import { checklogin } from './../method/checklogin.js';
+import { throttle } from './../method/throttle.js';
+import { getCookie } from './../method/cookie.js';
 //投稿表单提交
-let FormBtn=document.getElementsByClassName("upload")[0];//获取form表单提交按钮
-FormBtn.addEventListener("click",judge);//绑定事件
+let FormBtn=document.querySelector(".upload");//获取form表单提交按钮
+FormBtn.addEventListener("click",throttle(judge,2000));//绑定事件
 let tips = document.querySelector('.tips');//绑定提示框
 //点击表单按钮做对应的操作函数
 function judge() {
-    if(!check()){//检测登录
+    if(!checklogin()){//检测登录
         tips.innerHTML="请先登录"; 
         return false;
     }//检测标题
@@ -103,7 +63,7 @@ function judge() {
         about_imgs.push(img_about[i].src)
     }
     let type = document.querySelector('.select');
-    const upload_url = "http://www.neri.com:3000/个人收集（部分）/neri的小窝/test/test6.php";
+    const upload_url = "./../../php/interface/upload-Article.php";
     const formdata = {
         "title":title.value,
         "type":type.value,
@@ -112,10 +72,19 @@ function judge() {
         "baidu":baidu.value,
         "od":od.value,
         "outlinks":outlinks,
-        "about_imgs":about_imgs
+        "about_imgs":about_imgs,
+        "userkey":getCookie('userkey')
     }
-    // document.querySelector(".upload").disabled=true;
-    console.log(loadXMLDoc(upload_url,formdata));
+    FormBtn.removeEventListener('click',judge)
+    let result = loadXMLDoc(upload_url,formdata);
+    if(result['status']){
+        tips.innerHTML = '上传成功，正在自动返回首页'; 
+        setTimeout(()=>location.href = "index",3000)
+    }
+    else{
+        FormBtn.addEventListener("click",throttle(judge,2000));//绑定事件
+        tips.innerHTML = '上传失败';  
+    }
 }
 
 //检查x.value和y.value都为空或都不为空
@@ -132,25 +101,7 @@ function checks(x=null,y=null){
     }
     return false;
 }
-module.exports.loadXMLDoc = loadXMLDoc();
-//ajax与后端php进行数据交互
-function loadXMLDoc(Url="",data=void 0)
-{
-	const xhr=new XMLHttpRequest();
-    let result
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState==4 && xhr.status==200)
-		{
-			result = JSON.parse(xhr.responseText) ;
-		}
-	}
-	xhr.open("post",`${Url}`,false);
-    const StrData = JSON.stringify(data);
-    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xhr.send(`data=${StrData}`);
-    return result;
-}
+import { loadXMLDoc } from './../method/ajax.js'
 
 //添加外部连接
 let AddOutlink = document.querySelector('.add_outlink');
@@ -169,7 +120,6 @@ function outlink_focus(){
 }
 // 内容截图上传
 let	file_box = document.getElementsByClassName('preview_box')[0];
-let file_tips = document.querySelector('#img_tips');
 $("#img_input").on("change", function(file_image){
     var file = file_image.target.files[0]; //获取图片资源
     // 只选择图片文件

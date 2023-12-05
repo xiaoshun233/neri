@@ -1,5 +1,5 @@
 import { getQueryString } from './../method/getQueryString.js';
-import { setCookie } from './../method/cookie.js';
+import { exitlogin } from './../method/exitlogin.js'
 window.addEventListener('load',function(){
     let pagetype = getQueryString('page');
     const button = document.querySelector(`#user-${pagetype}`);
@@ -7,8 +7,5 @@ window.addEventListener('load',function(){
     icon.style.color = "#ffffff"
     button.style.backgroundColor = "#bbbbbb"
 })
-const exitlogin = document.querySelector('#user-exit')
-exitlogin.addEventListener('click',function(){
-    setCookie('userkey',"",-3600);
-    
-})
+const exitbutton = document.querySelector('#user-exit')
+exitbutton.addEventListener('click',exitlogin)
