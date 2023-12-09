@@ -1,8 +1,9 @@
-﻿.main{
+﻿.main {
     margin: 70px auto;
 }
+
 /*头部标题*/
-.head{
+.head {
     width: 100%;
     line-height: 150px;
     text-align: center;
@@ -10,26 +11,29 @@
     color: #fff;
     font-size: 30px;
 }
+
 /*滚动条*/
-.marquee{
-    background-color:rgb(33, 0, 167);
-    border-radius:50px;
-    box-shadow:0px 0px 10px 10px #ffffff;
-    padding:2px;
+.marquee {
+    background-color: rgb(33, 0, 167);
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px 10px #ffffff;
+    padding: 2px;
     margin: 15px auto;
     overflow: hidden;
 }
-.marquee_text{
+
+.marquee_text {
     font-size: 18px;
     margin: 0;
     line-height: 30px;
-    background:-webkit-linear-gradient(left, #2fc3fe, #49ff35,#e7ff34);
-    background-clip:border-box ;
+    background: -webkit-linear-gradient(left, #2fc3fe, #49ff35, #e7ff34);
+    background-clip: border-box;
     -webkit-background-clip: text;
     color: transparent;
 }
+
 /*顶部分类部分*/
-.top{
+.top {
     max-width: 1600px;
     width: 86%;
     border-radius: 10px;
@@ -38,9 +42,10 @@
     padding-top: 5px;
     box-shadow: 0 0 5px 5px rgb(244, 244, 244);
 }
+
 /*小标题部分*/
-.top h3{
-    border-bottom:1px solid rgb(204, 204, 204);
+.top h3 {
+    border-bottom: 1px solid rgb(204, 204, 204);
     width: 90%;
     margin: 20px auto 0;
     font-size: 30px;
@@ -48,10 +53,12 @@
     text-align: left;
     color: #9b9b9b;
 }
-.tags{   
+
+.tags {
     line-height: 50px;
 }
-.tags .tag_free{
+
+.tags .tag_free {
     color: rgb(132, 123, 123);
     width: 100px;
     height: 30px;
@@ -60,14 +67,17 @@
     text-shadow: 1px 1px 15px;
     display: inline-block;
 }
-.tags a:hover{
+
+.tags a:hover {
     color: blue;
     text-decoration: underline;
 }
-.types{
-    line-height: 50px;    
+
+.types {
+    line-height: 50px;
 }
-.types .type_free{
+
+.types .type_free {
     color: rgb(63, 63, 63);
     width: 100px;
     height: 30px;
@@ -76,25 +86,35 @@
     text-shadow: 1px 1px 20px;
     display: inline-block;
 }
-.types a:hover{
+
+.types a:hover {
     color: greenyellow;
     text-decoration: underline;
 }
+
 /*中间盒子部分*/
-.middle{
+.middle {
     margin: 10px auto;
     max-width: 1600px
 }
-.game_ver,.novel_ver,.comic_ver,.anime_ver{
+
+.item_ver {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
 }
+
 /*中心内容底部*/
-.pages{
+.pages {
     height: 50px;
     text-align: center;
     margin: 60px auto;
 }
-.pages a{
+
+.pages a {
     color: rgb(143, 143, 143);
     background-color: rgb(197, 197, 197);
     width: 30px;
@@ -104,7 +124,8 @@
     display: inline-block;
     margin: 0 3px;
 }
-.pages .next{
+
+.pages .next {
     color: rgb(143, 143, 143);
     background-color: rgb(197, 197, 197);
     width: 60px;
@@ -114,8 +135,9 @@
     display: inline-block;
     margin: 0 15px;
 }
+
 /*现在所在位置*/
-.pages .now{
+.pages .now {
     background-color: rgb(0, 180, 180);
     width: 30px;
     line-height: 28px;
@@ -124,7 +146,8 @@
     display: inline-block;
     color: rgb(143, 143, 143);
 }
-.tags .tag_now{
+
+.tags .tag_now {
     color: blue;
     width: 100px;
     height: 50px;

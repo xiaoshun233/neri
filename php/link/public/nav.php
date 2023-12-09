@@ -14,14 +14,14 @@
     </div>
     <!-- 搜索栏 -->
     <div class="search">
-        <input type="text" class="search_text" value="">
-        <button onclick="search_click()"><i class="fa-solid fa-magnifying-glass fa-lg"></i><span>搜索</span></button>
+        <input type="text" class="search_text">
+        <button class="search_button"><i class="fa-solid fa-magnifying-glass fa-lg"></i><span>搜索</span></button>
     </div>
     <!-- 用户展示 -->
     <a href='login.php' class='goto_login'>登录||注册</a>
-    
+
     <div class="user_center">
-    <img src="#" class="headshot">
+        <img src="#" class="headshot">
         <div class="user_message">
             <div class="user_info">
                 <img src="" class="headshot">
@@ -32,8 +32,12 @@
                 <span>注册时间:</span>
                 <span id="regtime"></span>
             </div>
-            <a href="submission.php"><div class="submission_go"><i class="fa-solid fa-upload"></i>去投稿</div></a>
-            <a href="usercenter.php"><div class="homepage"><i class="fa-solid fa-user"></i>个人主页</div></a>
+            <a href="submission.php">
+                <div class="submission_go"><i class="fa-solid fa-upload"></i>去投稿</div>
+            </a>
+            <a href="usercenter.php">
+                <div class="homepage"><i class="fa-solid fa-user"></i>个人主页</div>
+            </a>
             <div class="change_login">
                 <div class="change_user"><a href='login.php'>变更用户</a></div>
                 <div class="exit_login"><a href='javascript:void(0);'>退出登录</a></div>
