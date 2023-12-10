@@ -1,36 +1,44 @@
-﻿*{
+﻿* {
     padding: 0;
     margin: 0;
 }
+
 /* 为图标添加通用css */
-.icon::before{
+.icon::before {
     display: inline-block;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
 }
+
 /* 网页通用 */
-ul,ol{
-    list-style:none;
+ul,
+ol {
+    list-style: none;
 }
-a{
-    text-decoration:none;
+
+a {
+    text-decoration: none;
     color: #000;
 }
-html{
-    color:#000;
-    font-family:"微软雅黑";
-    font-size:10px;
+
+html {
+    color: #000;
+    font-family: "微软雅黑";
+    font-size: 10px;
 }
-form{
+
+form {
     display: inline-block;
 }
-body{
+
+body {
     background-image: url(../images/background/body.png);
     transition: all 1s ease;
 }
+
 /*导航栏*/
-.nav{
-    background-color:#fafafaee;
+.nav {
+    background-color: #fafafaee;
     width: 100%;
     height: 70px;
     min-width: 1200px;
@@ -43,60 +51,96 @@ body{
     justify-content: space-around;
     align-items: center;
 }
-.nav ul{
+
+.nav ul {
     display: inline-block;
     width: fit-content;
 }
-.nav li{
+
+.nav li {
     display: inline-block;
     font-size: 18px;
     font-family: "宋体";
     font-weight: 700;
 }
-.nav ul li a{
+
+.nav ul li a {
     margin-left: 50px;
 }
-.nav_1{
+
+.nav_1 {
     color: #Ff4d00;
 }
-.nav_2{
+
+.nav_2 {
     color: #8aff57;
 }
-.nav_3{
+
+.nav_3 {
     color: #007d00;
 }
-.nav_4{
+
+.nav_4 {
     color: #E8A600;
 }
-.nav_5{
-    color:#86e1ff ;
+
+.nav_5 {
+    color: #86e1ff;
 }
+
+.scrollBar {
+    width: 0;
+    height: 2px;
+    background-color: rgb(135, 135, 135);
+    animation: scrollbar 3s linear;
+    animation-timeline: scroll();
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+@keyframes scrollbar {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
 /*顶部时间栏*/
-.div_time{
+.div_time {
     width: fit-content;
     font-weight: 700;
 }
-#time{
+
+#time {
     font-size: 17px;
-    background:-webkit-linear-gradient(left, #4356D6, #D632BB);
-    background-clip:border-box ;
+    background: -webkit-linear-gradient(left, #4356D6, #D632BB);
+    background-clip: border-box;
     -webkit-background-clip: text;
     color: transparent;
 }
-.time_top,.time_bottom{
+
+.time_top,
+.time_bottom {
     line-height: normal;
 }
-.time_bottom{
+
+.time_bottom {
     text-align: center;
     font-family: "仿宋";
     font-size: 14px;
-    background:-webkit-linear-gradient(right, #4356D6, #32a2d6);
-    background-clip:border-box ;
+    background: -webkit-linear-gradient(right, #4356D6, #32a2d6);
+    background-clip: border-box;
     -webkit-background-clip: text;
     color: transparent;
 }
+
 /*顶部搜索栏*/
-.search{
+.search {
     border: rgb(193, 193, 255) 1px solid;
     border-radius: 8px;
     height: 30px;
@@ -105,46 +149,53 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.search button{
+
+.search button {
     color: #fefefe;
     border: 0;
-    background-color: rgba(150, 150, 150,0.7);
+    background-color: rgba(150, 150, 150, 0.7);
     height: 100%;
     font-size: 13px;
     font-weight: 700;
     font-family: "宋体";
     letter-spacing: 2px;
-    padding:0 5px 0 10px;
-    white-space:nowrap;
+    padding: 0 5px 0 10px;
+    white-space: nowrap;
     border-radius: 0 8px 8px 0;
 }
-.search span{
+
+.search span {
     margin: 0 5px;
 }
-.search_text{
+
+.search_text {
     border: 0;
     color: rgb(152, 152, 255);
     outline: none;
     background-color: rgba(255, 255, 255, 0);
 }
+
 /*个人中心*/
-.user_center{
+.user_center {
     position: relative;
     display: none;
 }
-.user_center img{
+
+.user_center img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
+
 /* 悬停效果 */
-.user_center:hover .user_message{
-    visibility:visible;
+.user_center:hover .user_message {
+    visibility: visible;
     opacity: 0.9;
     transform: translateY(0px);
 }
+
 /* 个人信息样式 */
-.user_message{
+.user_message {
     position: absolute;
     top: 100%;
     right: 0;
@@ -152,7 +203,7 @@ body{
     font-size: 13px;
     padding: 12px 20px 10px;
     margin: 20px 0 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     line-height: 32px;
     min-width: 330px;
     border-radius: var(--theme-radius);
@@ -161,10 +212,11 @@ body{
     -moz-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-in-out;
-    border-radius:5px ;
+    border-radius: 5px;
     visibility: hidden;
     opacity: 0;
 }
+
 /* 小三角形 */
 .user_center .user_message:before {
     content: " ";
@@ -178,16 +230,20 @@ body{
     right: 10px;
     top: -14px;
 }
+
 /* 名字布局 */
-.user_info{
+.user_info {
     display: flex;
     align-items: center
 }
-.nickname,.vip{
+
+.nickname,
+.vip {
     margin: 0 20px;
 }
-.vip{
-    background: rgba(45,50,55,0.7);
+
+.vip {
+    background: rgba(45, 50, 55, 0.7);
     color: #fff;
     border-radius: 20px;
     font-size: 12px;
@@ -195,19 +251,27 @@ body{
     width: 60px;
     text-align: center;
 }
+
 /* 注册时间 */
-.regtime,.concern_fans{
+.regtime,
+.concern_fans {
     background-color: #f5f5f5;
     border-radius: 0 10px;
     padding: 2px 15px;
     font-size: 13px;
 }
+
 /* 上下间距 */
-.user_info,.concern_fans,.regtime,.change_login{
+.user_info,
+.concern_fans,
+.regtime,
+.change_login {
     margin: 15px auto;
 }
+
 /* 去投稿和个人中心 */
-.submission_go,.homepage{
+.submission_go,
+.homepage {
     position: relative;
     line-height: 30px;
     padding: 0 15px;
@@ -216,50 +280,61 @@ body{
     border-radius: 3px;
     margin: 5px 0;
 }
-.homepage::after,.submission_go::after{
+
+.homepage::after,
+.submission_go::after {
     content: "";
-    position: absolute; 
-    left: 0; 
-    top: 0; 
-    right: 10px; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 10px;
     bottom: 0;
-    margin: auto; 
+    margin: auto;
     margin-right: 0;
     width: 7px;
     height: 7px;
     border-top: 2px solid #000000;
     border-right: 2px solid #000000;
-    transform: rotate(45deg);   
+    transform: rotate(45deg);
 }
-.homepage:hover,.submission_go:hover{
+
+.homepage:hover,
+.submission_go:hover {
     background-color: #e7e7e7;
 }
+
 /* 用户变更或退出登录 */
-.change_login{
+.change_login {
     display: flex;
     justify-content: space-around;
 }
-.change_login div{
-    padding:0 25px;
-    background-color:rgba(45,50,55,0.7);
+
+.change_login div {
+    padding: 0 25px;
+    background-color: rgba(45, 50, 55, 0.7);
     border-radius: 10px;
 }
-.nav .change_login a{
+
+.nav .change_login a {
     margin: 0 auto;
     font-size: 14px;
     font-weight: 700;
     color: #ffffff;
 }
+
 /* 去登录 */
-.goto_login{
+.goto_login {
     font-size: 16px;
     font-weight: 200;
     letter-spacing: 3px;
     color: #111111;
     display: none;
 }
+
 /*侧边栏*/
-.commond_1,.commond_2,.commond_3{
+.commond_1,
+.commond_2,
+.commond_3 {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -274,37 +349,46 @@ body{
     background-size: 32px;
     background-repeat: no-repeat;
 }
-.commond_1{
+
+.commond_1 {
     bottom: 110px;
     transition: all 1s ease;
 }
-.commond_2{
+
+.commond_2 {
     bottom: 70px;
     transition: all 1s ease;
 }
-.commond_3{
+
+.commond_3 {
     bottom: 30px;
 }
+
 /*新增变化*/
-.new{
-    transition:all 0.5s linear;
+.new {
+    transition: all 0.5s linear;
 }
-.transform{
+
+.transform {
     transform: translateY(-100px);
     transition: all 1s ease;
 }
-.transform_click{
+
+.transform_click {
     transform: translateX(50px);
     transition: all 1s ease;
 }
-.dark{
+
+.dark {
     background-color: #000;
     transition: background 1s ease;
 }
-.light{
+
+.light {
     background-color: #fff;
     transition: background 1s ease;
 }
-.search_none{
+
+.search_none {
     display: none;
 }

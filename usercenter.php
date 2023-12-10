@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>用户中心 ねりの小窝</title>
     <link rel="icon" href="images/title_ico/title_4.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/usercenter.css" type="text/css">
     <!-- 引入导航栏和页脚css -->
@@ -21,14 +21,15 @@
     <!-- 头部导航栏 -->
     <?php require "./php/link/public/nav.php"; ?>
     <div class="scrollBar">&nbsp;</div>
+    <?php require "./php/link/usercenter/user-data.php"; ?>
     <div id="user">
         <div id='user-nav'>
             <div id="user-nav-top">
                 <div id="user-headshot">
-                    <img src="images/head_img/head_1.png" alt="headshot">
+                    <img src="images/head_img/head_normal.png" alt="headshot">
                 </div>
                 <div id="user-nickname">
-                    <span>丶salty</span>
+                    <span>昵称</span>
                 </div>
                 <div id="user-attend">
                     <div>签到</div>
@@ -110,21 +111,25 @@
             <?php
             $page = isset($_GET['page']) ? $_GET['page'] : "";
             if ($page == "mydata") {
-                require "./php/link/usercenter/#.php";
+                require "./php/link/usercenter/item-mydata.php";
             } else if ($page == "collection") {
                 require "./php/link/usercenter/item-collection.php";
             } else if ($page == "contribute") {
-                require "./php/link/usercenter/#.php";
+                // require "./php/link/usercenter/item-contribute.php";
             } else if ($page == "comment") {
-                require "./php/link/usercenter/#.php";
+                // require "./php/link/usercenter/item-comment.php";
             } else if ($page == "buy") {
                 require "./php/link/usercenter/item-buy.php";
+            } else if ($page == "support") {
+                // require "./php/link/usercenter/item-support.php";
+            } else if ($page == "record") {
+                // require "./php/link/usercenter/item-record.php";
             } else if ($page == "permission") {
-                require "./php/link/usercenter/#.php";
-            } else if ($page == "alterpassword") {
-                require "./php/link/usercenter/#.php";
+                require "./php/link/usercenter/item-permission.php";
             } else if ($page == "alteremail") {
-                require "./php/link/usercenter/#.php";
+                // require "./php/link/usercenter/item-alteremail.php";
+            } else if ($page == "alterpassword") {
+                // require "./php/link/usercenter/item-alterpassword.php";
             }
             ?>
         </div>

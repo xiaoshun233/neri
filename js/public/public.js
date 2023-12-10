@@ -46,7 +46,6 @@ function now_time() {
 }
 //搜索栏
 const searchbutton = document.querySelector('.nav .search_button');
-console.log(searchbutton);
 searchbutton.addEventListener('click', search_click)
 function search_click() {
     const searchtext = document.querySelector('.search_text').value;

@@ -1,0 +1,54 @@
+.item-mydata-div {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.item-mydata-div>div {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.mydata-tips {
+    width: 20%;
+    color: #464646;
+    text-align: right;
+}
+
+.mydata-message {
+    width: 80%;
+    color: #868686;
+    text-align: left;
+}
+
+#nickname,
+#introduce {
+    width: 80%;
+    border-radius: 4px;
+}
+
+.mydata-nickname #nickname {
+    height: 20px;
+}
+
+.mydata-headshot #introduce {
+    overflow: hidden;
+    resize: none;
+    height: 80px;
+}
+
+.mydata-button #button {
+    border-radius: 5px;
+    background-color: #72c0cc;
+    color: #f2f2f2;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    display: block;
+}

@@ -1,0 +1,38 @@
+.item-permission {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 100px auto;
+}
+
+.item-permission-div {
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 5px;
+    width: 300px;
+    height: 100px;
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.permission-item-title {
+    font-size: 10px;
+    margin-left: 20px;
+    color: gray
+}
+
+.permission-message {
+    font-size: 26px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.permission-message .amount {
+    color: rgb(0, 163, 163);
+}
+
+.permission-message .price {
+    font-size: 14px;
+    font-weight: 400;
+}

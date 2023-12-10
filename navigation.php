@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title; ?>导航页</title>
+    <title><?php echo $title; ?>导航页 ねりの小窝</title>
     <link rel="icon" href="images/title_ico/title_2.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/navigation.css" type="text/css">

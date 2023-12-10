@@ -5,7 +5,7 @@
     <?php require "./php/link/public/session.php"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投稿页面</title>
+    <title>投稿页面 ねりの小窝</title>
     <link rel="icon" href="images/title_ico/title_3.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/banner.css" type="text/css">
     <link rel="stylesheet" href="css/submission.css" type="text/css">

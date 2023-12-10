@@ -5,7 +5,7 @@
     <?php require "./php/link/public/session.php"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索页</title>
+    <title>搜索页 ねりの小窝</title>
     <link rel="icon" href="images/title_ico/title_5.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/search.css" type="text/css">
     <?php require "./php/link/public/public-css.php"; ?>

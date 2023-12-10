@@ -1,21 +1,26 @@
-﻿#header{
-    height:  calc(100vh);
+﻿#header {
+    height: calc(100vh);
 }
+
 /* 主页导航栏 */
-.nav .goto_log{
+.nav .goto_log {
     color: #ffffff;
 }
-body .new .goto_log{
+
+body .new .goto_log {
     color: #010101;
 }
-body .nav{
-    background-color: rgba(254,254,254,0);
+
+body .nav {
+    background-color: rgba(254, 254, 254, 0);
 }
-body .new{
-    background-color: rgba(252, 252, 252,0.95);
+
+body .new {
+    background-color: rgba(252, 252, 252, 0.95);
 }
+
 /*顶部动态视频*/
-.video{
+.video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -25,46 +30,33 @@ body .new{
     top: 0;
     bottom: 0;
 }
+
 /*logo部分*/
-.logo{
+.logo {
     text-align: center;
     position: relative;
     top: calc(50% + 20px);
     transform: translateY(-50%);
     right: 30%;
-    background:-webkit-linear-gradient(left,#b2b9be,#2f4052);
-    background-clip:border-box ;
+    background: -webkit-linear-gradient(left, #b2b9be, #2f4052);
+    background-clip: border-box;
     -webkit-background-clip: text;
     color: transparent;
 }
-.logo_big,.logo_little{
+
+.logo_big,
+.logo_little {
     z-index: 1000;
     font-weight: 1000;
     display: block;
     font-family: "仿宋";
 }
-.logo_little{
+
+.logo_little {
     font-size: 42px;
 }
-.logo_big{
-    font-size: 50px;;
-}
-.scrollBar{
-    width: 0;
-    height: 2px;
-    background-color: rgb(135, 135, 135);
-    animation: scrollbar 3s linear;
-    animation-timeline: scroll();
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-}
-@keyframes scrollbar {
-    from{
-        width: 0%;
-    }
-    to{
-        width: 100%;
-    }
+
+.logo_big {
+    font-size: 50px;
+    ;
 }

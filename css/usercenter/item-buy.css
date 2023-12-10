@@ -1,48 +1,56 @@
-#item-buy{
+#item-buy {
     width: 95%;
     margin: 20px auto;
 }
-.item-buy-title{
+
+.item-buy-title {
     display: flex;
     font-size: 16px;
-    border-bottom:1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
     padding-bottom: 10px;
     font-weight: 1000;
 }
-.item-buy-list{
+
+.item-buy-list {
     display: flex;
     padding: 10px 0;
     border-bottom: 1px solid #aaaaaa;
-    color:#bbbbbb;
+    color: #bbbbbb;
     font-size: 12px;
 }
-.item-buy-name{
+
+.item-buy-name {
     margin-left: 10px;
     width: 40%;
     text-align: left;
     color: #000;
 }
-.item-buy-ordernumber{
+
+.item-buy-ordernumber {
     width: 22%;
     text-align: center;
     padding: 0 5px;
 }
-.item-buy-price{
+
+.item-buy-price {
     width: 15%;
     text-align: center;
     padding: 0 5px;
 }
-.item-buy-ordertime{
+
+.item-buy-ordertime {
     width: 17%;
     text-align: center;
     padding: 0 5px;
 }
-.item-buy-check{
+
+.item-buy-check {
     width: 8%;
     text-align: center;
     padding: 0 5px;
     color: #000;
 }
-#item-buy>div:nth-child(even){
+
+#item-buy>div:nth-child(even) {
     background-color: #f2f2f2;
 }
