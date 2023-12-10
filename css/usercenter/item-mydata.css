@@ -26,23 +26,23 @@
     text-align: left;
 }
 
-#nickname,
-#introduce {
+#mydata-nickname,
+#mydata-introduce {
     width: 80%;
     border-radius: 4px;
 }
 
-.mydata-nickname #nickname {
+.mydata-nickname #mydat-nickname {
     height: 20px;
 }
 
-.mydata-headshot #introduce {
+.mydata-headshot #mydata-introduce {
     overflow: hidden;
     resize: none;
     height: 80px;
 }
 
-.mydata-button #button {
+.mydata-button #mydata-button {
     border-radius: 5px;
     background-color: #72c0cc;
     color: #f2f2f2;

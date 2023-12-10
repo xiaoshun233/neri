@@ -35,7 +35,7 @@
             <a href="submission.php">
                 <div class="submission_go"><i class="fa-solid fa-upload"></i>去投稿</div>
             </a>
-            <a href="usercenter.php">
+            <a href="usercenter.php?page=mydata">
                 <div class="homepage"><i class="fa-solid fa-user"></i>个人主页</div>
             </a>
             <div class="change_login">

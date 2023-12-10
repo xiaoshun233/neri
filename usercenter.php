@@ -20,8 +20,6 @@
 <body id="top" class="light">
     <!-- 头部导航栏 -->
     <?php require "./php/link/public/nav.php"; ?>
-    <div class="scrollBar">&nbsp;</div>
-    <?php require "./php/link/usercenter/user-data.php"; ?>
     <div id="user">
         <div id='user-nav'>
             <div id="user-nav-top">
