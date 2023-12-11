@@ -33,5 +33,5 @@ foreach ($data as $value) :
                 <span class='item_list3'><i class='fa-regular fa-heart'></i><?php echo $value["praise"]; ?></span>
             </div>
         </div>
-    </div>";
+    </div>
 <?php endforeach; ?>

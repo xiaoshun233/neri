@@ -35,13 +35,12 @@ class User
 
 
     /* 用户登录 */
-    public function login()
+    public function login($userip, $useragent)
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
         require_once "./../method/token.php";
         //判断用户名和密码是否匹配
-
         try {
             $result = false;
             $this->encryptpassword();
@@ -52,7 +51,7 @@ class User
             if (empty($row)) {
                 throw new Exception('用户不存在');
             }
-            if (!($this->updatatoken())) {
+            if (!($this->updatatoken($userip, $useragent))) {
                 throw new Exception('更新用户token失败');
             }
 
@@ -224,18 +223,70 @@ class User
 
 
     //设置用户token
-    public function updatatoken()
+    public function updatatoken($userip, $useragent)
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
-        if (!setToken("usertoken")) {
-            return false;
-        }
-        $this->set('usertoken', getToken('usertoken'));
+        $token = md5(uniqid(microtime(true), true));
+        $this->set('usertoken', $token);
+        setToken('usertoken', encrypt($token, $userip . $useragent));
         $sql = "UPDATE users 
                 set usertoken = ? 
                 where username = ?";
-        $updatetoken = mysqlPreprocess($link, $sql, 'ss', $this->usertoken, $this->username);
+        $updatetoken = mysqlPreprocess($link, $sql, 'ss', getToken('usertoken'), $this->username);
+        if ($updatetoken) {
+            $link->commit();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    //更新用户签到时间
+    public function checksignin()
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        $sql = "SELECT signtime 
+                from users 
+                where usertoken = ?";
+        $result = mysqlPreprocess($link, $sql, 's', $this->usertoken);
+        if ($result) {
+            $signflag = floor((strtotime("now") - strtotime($result[0]['signtime'])) / 86400);
+            $signflag = $signflag > 0 ? true : false;
+        } else {
+            return false;
+        }
+        if ($signflag) {
+            $sql = "UPDATE users 
+                    set signtime = ? 
+                    where usertoken = ?";
+            $updatetoken = mysqlPreprocess($link, $sql, 'ss', date('Y-m-d'), $this->usertoken);
+            if ($updatetoken) {
+                $link->commit();
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    //增加用户黑猫币
+    public function addprice()
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        $sql = "SELECT price 
+                from users 
+                where usertoken = ?";
+        $randprice =  rand(1, 2);
+        $sql = "UPDATE users 
+                set nekoprice = nekoprice + ? 
+                where usertoken = ?";
+        $updatetoken = mysqlPreprocess($link, $sql, 'is', $randprice, $this->usertoken);
         if ($updatetoken) {
             $link->commit();
             return true;
