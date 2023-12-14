@@ -15,8 +15,6 @@
     <?php require "./php/link/public/icon.php"; ?>
     <!-- 引入jq库 -->
     <?php require "./php/link/public/jquery.php"; ?>
-    <!-- 引入cropperjs -->
-    <?php require "./php/link/public/cropperjs.php"; ?>
     <!-- 引入bootstrap -->
     <?php require "./php/link/public/bootstrap.php"; ?>
     <!-- 引入php连接数据库 -->
@@ -33,10 +31,10 @@
             <div class="type">
                 <label for="type">分类:</label>
                 <select id="type" class="select">
-                    <option value="小说">小说</option>
-                    <option value="漫画">漫画</option>
-                    <option value="动画">动画</option>
-                    <option value="游戏">游戏</option>
+                    <option value="novel">小说</option>
+                    <option value="comic">漫画</option>
+                    <option value="anime">动画</option>
+                    <option value="game">游戏</option>
                 </select>
                 <div class="about"><span>简介:</span><textarea id="input_about"></textarea></div>
             </div>
@@ -62,9 +60,7 @@
                 <div class="add_outlink"><i class="fa-solid fa-plus"></i></div>
             </div>
             <input type="button" value="提交" class="upload">
-            <span class="tips"><?php if (isset($from_message)) {
-                                    echo $from_message;
-                                } ?></span>
+            <span class="tips"></span>
         </form>
         <!--广告部分-->
         <div class="banner">

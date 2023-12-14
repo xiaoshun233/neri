@@ -8,7 +8,7 @@ $sql = "SELECT a.name as name,headshot,nickname,cover,a.number as number,hits,co
         on a.type = c.name
         WHERE a.type = ? 
         order by a.number desc LIMIT 8"; //查询语句
-include_once "./php/method/mysqlPreprocess.php";
+require_once "./php/method/mysqlPreprocess.php";
 $data = mysqlPreprocess($link, $sql, 's', $class);
 foreach ($data as $value) :
 ?>

@@ -1,6 +1,5 @@
-.confirm-mask {
-    background-color: #444444;
-    opacity: 0.5;
+.popup-mask {
+    background-color: #44444470;
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +11,7 @@
     transition: all 0.3s ease;
 }
 
-.confirm-content {
+.popup-content {
     width: 25%;
     height: 20%;
     background-color: #d9d9d9;
@@ -20,14 +19,14 @@
     overflow: hidden;
 }
 
-.confirm-content>div {
+.popup-content>div {
     width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
 }
 
-.confirm-content-title {
+.popup-content-title {
     width: 100%;
     justify-content: flex-start;
     height: 30%;
@@ -37,7 +36,7 @@
     padding-left: 5%;
 }
 
-.confirm-content-message {
+.popup-content-message {
     height: 40%;
     border-bottom: 2px solid #aaaaaa;
     justify-content: center;
@@ -45,12 +44,12 @@
 
 }
 
-.confirm-content-button {
+.popup-content-button {
     height: 30%;
     justify-content: flex-end;
 }
 
-.confirm-content-button>div {
+.popup-content-button>div {
     width: 65px;
     margin: 0 5%;
     font-size: 12px;
@@ -71,6 +70,6 @@
     color: #444444;
 }
 
-.confirm-content-button>div:hover {
+.popup-content-button>div:hover {
     opacity: 0.5;
 }

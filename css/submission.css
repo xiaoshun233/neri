@@ -1,33 +1,38 @@
 /* 主要部分盒子 */
-body{
+body {
     background-color: rgb(249, 249, 249);
 }
-.main{
+
+.main {
     margin: 100px 120px;
     display: flex;
     justify-content: space-around;
 }
+
 /* 表单盒子 */
-.submission{
+.submission {
     width: 800px;
     font-size: 21px;
     font-weight: 700;
-    border:1px rgb(195, 195, 195) solid;
+    border: 1px rgb(195, 195, 195) solid;
     border-radius: 5px;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
+
 /* 表单里面的盒子 */
-.submission div{
+.submission div {
     margin: 40px 0;
 }
-.submission input{
+
+.submission input {
     vertical-align: middle;
     border-radius: 3px;
     border: 1px rgb(195, 195, 195) solid;
     color: #414141;
 }
-.submission textarea{
+
+.submission textarea {
     display: block;
     width: 90%;
     height: 150px;
@@ -35,14 +40,16 @@ body{
     border-radius: 3px;
     border: 1px rgb(195, 195, 195) solid;
     color: #414141;
-    white-space:pre-wrap;
+    white-space: pre-wrap;
 }
+
 /* 标题 */
 .title {
     height: 25px;
 }
+
 /* 下拉列表 */
-.select{
+.select {
     width: 100px;
     height: 25px;
     margin-left: 10px;
@@ -51,48 +58,58 @@ body{
     border: 1px rgb(195, 195, 195) solid;
     color: #414141;
 }
+
 /* 简介 */
-.about{
+.about {
     caret-color: black;
 }
+
 /* 封面图和内容截图 */
-.cover_img{
+.cover_img {
     width: 200px;
     margin-left: 20px;
     overflow: hidden;
 }
-.cover_preview{
+
+.cover_preview {
     width: 320px;
     height: 180px;
-    border:5px solid #e3e3e3;
+    border: 5px solid #e3e3e3;
     border-radius: 5px;
 }
-.cover_preview img{
+
+.cover_preview img {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
     border-radius: 5px;
 }
-#img_input,.cover_img,.file_message{
+
+#img_input,
+.cover_img,
+.file_message {
     display: none;
 }
-.img_file .preview_box{
+
+.img_file .preview_box {
     width: 650px;
     height: 380px;
-    border:5px solid #e3e3e3;
+    border: 5px solid #e3e3e3;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 10px;
 }
-.img_file_tips{
+
+.img_file_tips {
     font-size: 12px;
     font-weight: 400;
     vertical-align: bottom;
     margin-left: 5px;
 }
-.img_file .img_box{
+
+.img_file .img_box {
     display: inline-block;
     width: 300px;
     height: 170px;
@@ -102,18 +119,22 @@ body{
     position: relative;
     background-color: #ececec;
     margin: 5px auto;
+    overflow: hidden;
 }
-.preview{
+
+.preview {
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
-.remove_file{
+
+.remove_file {
     position: absolute;
     right: 0;
     top: 0;
 }
+
 /* 上传图片按钮样式 */
-.img_input_css{
+.img_input_css {
     position: relative;
     background-color: #dfdfdf;
     border: none;
@@ -123,7 +144,8 @@ body{
     line-height: 40px;
     border-radius: 6px;
     text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
@@ -132,76 +154,89 @@ body{
     vertical-align: text-top;
     margin-left: 10px;
 }
-.img_input_css:after{
+
+.img_input_css:after {
     content: "";
     background: #4d4d4d;
     display: block;
     position: absolute;
     padding-top: 300%;
     padding-left: 350%;
-    margin-left: -20px!important;
+    margin-left: -20px !important;
     margin-top: -120%;
     opacity: 0;
     transition: all 0.8s
 }
-.img_input_css:active:after{
+
+.img_input_css:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s
 }
+
 /* 下载链接部分 */
-.download{
+.download {
     display: flex;
     flex-direction: column;
     width: 70%;
     line-height: 40px;
 }
+
 /* 外部链接部分 */
-.outlink{
+.outlink {
     display: flex;
     align-items: flex-end;
 }
-.outlinks div{
+
+.outlinks div {
     margin: 10px auto;
     font-weight: 400;
     font-size: 15px;
 }
-.outlinks input:nth-child(odd){
+
+.outlinks input:nth-child(odd) {
     content: '链接';
     width: 100px;
     margin: 0 10px;
 }
-.outlinks input:nth-child(even){
+
+.outlinks input:nth-child(even) {
     width: 400px;
     margin: 0 10px;
 }
-.add_outlink svg{
+
+.add_outlink svg {
     margin-left: 40px;
     margin-bottom: 5px;
     /* border: 2px #414141 solid; */
 }
-.add_outlink svg:hover{
+
+.add_outlink svg:hover {
     color: #c40f25;
 }
+
 /* 上传按钮 */
-.upload{
+.upload {
     width: 50px;
     height: 30px;
     margin: 0 70px;
     font-weight: 600;
 }
-.upload:hover{
+
+.upload:hover {
     background-color: rgb(245, 245, 245);
     color: rgb(69, 69, 69);
     transition: background 0.5s ease;
 }
+
 /* 广告层位置 */
-.main .banner{
+.main .banner {
     margin-top: 50px;
 }
+
 /* 网页嵌套 */
-#iframe_upload{
+#iframe_upload {
     width: 230px;
     height: 40px;
     border: 0;

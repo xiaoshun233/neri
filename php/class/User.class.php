@@ -15,6 +15,8 @@ class User
     private $userNumber;
     private $usertoken;
     private $useremail;
+    private $userkey;
+
     public function set($name, $value)
     {
         if (empty($value)) {
@@ -55,7 +57,7 @@ class User
                 throw new Exception('更新用户token失败');
             }
 
-            $result = $this->get('usertoken');
+            $result = $this->get('userkey');
             $link->commit();
         } catch (Exception $e) {
             $result = false;
@@ -206,6 +208,7 @@ class User
         }
     }
 
+
     public function getTokenData()
     {
         require_once "./../method/mysqlPreprocess.php";
@@ -227,9 +230,8 @@ class User
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
-        $token = md5(uniqid(microtime(true), true));
-        $this->set('usertoken', $token);
-        setToken('usertoken', encrypt($token, $userip . $useragent));
+        $this->userkey = md5(uniqid(microtime(true), true));
+        setToken('usertoken', encrypt($this->userkey, $userip . $useragent));
         $sql = "UPDATE users 
                 set usertoken = ? 
                 where username = ?";
@@ -249,29 +251,34 @@ class User
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
-        $sql = "SELECT signtime 
-                from users 
-                where usertoken = ?";
-        $result = mysqlPreprocess($link, $sql, 's', $this->usertoken);
-        if ($result) {
+        try {
+            $result = false;
+            $sql = "SELECT signtime 
+                    from users 
+                    where usertoken = ?";
+            $result = mysqlPreprocess($link, $sql, 's', $this->usertoken);
+            if (!$result) {
+                throw new Exception("查询用户数据失败");
+            }
             $signflag = floor((strtotime("now") - strtotime($result[0]['signtime'])) / 86400);
             $signflag = $signflag > 0 ? true : false;
-        } else {
-            return false;
-        }
-        if ($signflag) {
+            if (!$signflag) {
+                throw new Exception("已经签到过了");
+            }
             $sql = "UPDATE users 
                     set signtime = ? 
                     where usertoken = ?";
             $updatetoken = mysqlPreprocess($link, $sql, 'ss', date('Y-m-d'), $this->usertoken);
             if ($updatetoken) {
                 $link->commit();
-                return true;
+                $result = true;
             } else {
-                return false;
+                throw new Exception("数据更新失败");
             }
-        } else {
-            return false;
+        } catch (Exception $e) {
+            $result = false;
+        } finally {
+            return $result;
         }
     }
     //增加用户黑猫币
@@ -279,9 +286,6 @@ class User
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
-        $sql = "SELECT price 
-                from users 
-                where usertoken = ?";
         $randprice =  rand(1, 2);
         $sql = "UPDATE users 
                 set nekoprice = nekoprice + ? 
@@ -293,5 +297,31 @@ class User
         } else {
             return false;
         }
+    }
+
+    //更新用户简介信息
+    public function updateNicknameIntroudce($userip, $useragent)
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        $this->encryptuserkey($userip, $useragent);
+        $sql = "UPDATE users
+                set nickname = ?,introduce = ?
+                where usertoken = ?";
+        $result = mysqlPreprocess($link, $sql, 'sss', $this->nickname, $this->introduce, $this->usertoken);
+        if ($result) {
+            $link->commit();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //获取用户key,ip,agent,将key转换成token
+    private function encryptuserkey($userip, $useragent)
+    {
+        require_once "./../method/encrypt.php";
+        $this->set('usertoken', encrypt($this->userkey, $userip . $useragent));
+        return $this->get('usertoken');
     }
 }

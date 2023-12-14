@@ -1,4 +1,3 @@
-
 <div class="item-collection">
     <div class="item-collection-div">
         <div class="item-collection-img"><img src="game_8.jpg"></div>
