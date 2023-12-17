@@ -121,4 +121,90 @@ class Article
             return $result;
         }
     }
+
+    // 提高点赞数
+    public function addpraise()
+    {
+        require_once './../link/public/mysql.php';
+        require_once './../method/mysqlPreprocess.php';
+        try {
+            $sql = "UPDATE items set praise = praise+1 where number = ?";
+            $result = mysqlPreprocess($link, $sql, 'i', $this->getvar('number'));
+            if ($result) {
+                $link->commit();
+            }
+        } finally {
+            return $result;
+        }
+    }
+
+    public function addCollection($userkey)
+    {
+        require_once './../link/public/mysql.php';
+        require_once './../method/mysqlPreprocess.php';
+        require_once './../class/User.class.php';
+        try {
+            $user = new User();
+            $usernumber = $user->getusernumber($userkey);
+            $sql = "SELECT collectionid from collection where usernumber = ? and itemnumber = ?";
+            $result = mysqlPreprocess($link, $sql, 'ii', $usernumber, $this->getvar('number'));
+            if (count($result) > 0) {
+                throw new Exception('已收藏');
+            }
+            $sql = "INSERT into collection (usernumber,itemnumber,collectiontime) values (?,?,?)";
+            $result = mysqlPreprocess($link, $sql, 'iis', $usernumber, $this->getvar('number'), date("Y-m-d"));
+            if ($result) {
+                $link->commit();
+                $result = true;
+            } else {
+                throw new Exception('收藏失败');
+            }
+        } catch (Exception $e) {
+            $result = $e->getMessage();
+        } finally {
+            return $result;
+        }
+    }
+
+    public function pulishcomment($userkey, $content)
+    {
+        require './../link/public/mysql.php';
+        require_once './../method/mysqlPreprocess.php';
+        require_once './../class/User.class.php';
+        try {
+            $user = new User();
+            $usernumber = $user->getusernumber($userkey);
+            if (!$usernumber) {
+                throw new Exception('查询用户失败');
+            }
+            if (!($this->checkitemnumber())) {
+                throw new Exception('查询文章失败,文章不存在');
+            }
+            $sql = "INSERT into comments (usernumber,itemnumber,commenttime,content) values (?,?,?,?)";
+            $result = mysqlPreprocess($link, $sql, 'iiss', $usernumber, $this->getvar('number'), date("Y-m-d"), $content);
+            if ($result) {
+                $link->commit();
+                $result = true;
+            } else {
+                throw new Exception('评论失败');
+            }
+        } catch (Exception $e) {
+            $result = $e->getMessage();
+        } finally {
+            return $result;
+        }
+    }
+
+    private function checkitemnumber(): bool
+    {
+        require './../link/public/mysql.php';
+        require_once './../method/mysqlPreprocess.php';
+        $sql = "SELECT count(number) as count from items where number = ?";
+        $result = mysqlPreprocess($link, $sql, 'i', $this->number);
+        if (empty($result)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

@@ -17,7 +17,7 @@
     </div>
     <div class="mydata-button">
         <div class="mydata-tips"></div>
-        <div class="mydata-message"><span id="mydata-button">修改资料</span><span id="mydata-tip"></span></div>
+        <div class="mydata-message"><span id="mydata-button">修改资料</span></div>
     </div>
 </div>
 <link rel="stylesheet" href="./css/usercenter/item-mydata.css" type="text/css">

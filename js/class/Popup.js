@@ -6,6 +6,7 @@ class Popup {
     #confirmtext;
     #canceltext;
     #contentdiv
+    #result;
     #yescallback = function () { };
     #nocallback = function () { };
 
@@ -20,7 +21,9 @@ class Popup {
     }
 
 
-
+    get getresult() {
+        return this.#result;
+    }
 
     settitle(title) {
         this.title = title;
@@ -95,45 +98,64 @@ class Popup {
         buttonconfirm.onclick = () => {
             this.#removebox();
             this.#yescallback();
+            this.#result = true;
         };
         buttoncancel.onclick = () => {
             this.#removebox();
             this.#nocallback();
+            this.#result = false;
         };
-        return contentbutton;
     }
 
 
     confirm(title, message, confirmtext, canceltext) {
+
         this.settitle(title || 'neri的小窝');
         this.setmessage(message || '来自此次确认框的提示');
+        this.setbuttontext(confirmtext || '确认', canceltext || '取消');
+
         this.#createcss("css/popup/confirm.css");
         this.#show(this.csselement);
         this.csselement.addEventListener('load', () => {
-            const confirmdiv = this.#createbox();
-            this.setbuttontext(confirmtext || '确认', canceltext || '取消');
-            this.#createbutton(confirmdiv);
+            this.#createbox();
+            this.#createbutton();
             this.#show(this.boxelement);
         })
     }
 
-    alert(title, message, second = 2) {
+    alert(title, message, second) {
         this.settitle(title || 'neri的小窝');
         this.setmessage(message || '来自此次警告框的提示');
-        const time = second * 1000;
+
         this.#createcss("css/popup/alert.css");
         this.#show(this.csselement);
         this.csselement.addEventListener('load', () => {
             this.#createbox(title, message);
             this.#show(this.boxelement);
-            Popup.sleep(time).then(() => {
-                this.#removebox();
-            })
+            if (second != void 0) {
+                const time = second * 1000;
+                Popup.sleep(time).then(() => {
+                    this.#removebox();
+                })
+            } else {
+                this.boxelement.addEventListener('click', () => {
+                    this.#removebox();
+                })
+            }
         })
     }
 
-    prompt() {
+    prompt(title, message) {
+        this.settitle(title || 'neri的小窝');
+        this.setmessage(message || '来自此次输入框的提示');
 
+        this.#createcss("css/popup/prompt.css");
+        this.#show(this.csselement);
+        this.csselement.addEventListener('load', () => {
+            this.#createbox();
+            this.#createbutton();
+            this.#show(this.boxelement);
+        })
     }
 }
 

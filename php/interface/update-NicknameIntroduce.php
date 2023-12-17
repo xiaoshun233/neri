@@ -32,8 +32,7 @@ try {
     $user->set('nickname', $data->nickname);
     $user->set('introduce', $data->introduce);
     $user->set('userkey', $data->userkey);
-    require_once './../method/getuserip.php';
-    $result['status'] = $user->updateNicknameIntroudce(getUserIP(), $_SERVER['HTTP_USER_AGENT']);
+    $result['status'] = $user->updateNicknameIntroudce();
     if ($result['status']) {
         $result['msg'] = "数据更新成功";
     }

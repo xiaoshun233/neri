@@ -10,7 +10,7 @@
     </div>
     <div class="item-permission-div">
         <div class="permission-message">
-            <span>普通用户</span>
+            <span class="user-permission">普通用户</span>
         </div>
         <div class="permission-item-title">
             <span>当前权限</span>

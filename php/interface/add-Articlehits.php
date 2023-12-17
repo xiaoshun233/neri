@@ -1,4 +1,5 @@
 <?php
+require_once './../class/Article.class.php';
 try {
     if (!isset($_POST['data'])) {
         throw new Exception('no data');
@@ -7,7 +8,6 @@ try {
     if (!($number = intval($number))) {
         throw new Exception('number can not is zero');
     }
-    require_once './../class/Article.class.php';
     $article = new Article();
     $article->setvar('number', $number);
     $result = $article->addhits();

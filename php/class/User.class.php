@@ -12,7 +12,7 @@ class User
     private $headshotPath;
     private $headshotData;
     private $introduce;
-    private $userNumber;
+    private $usernumber;
     private $usertoken;
     private $useremail;
     private $userkey;
@@ -59,8 +59,6 @@ class User
 
             $result = $this->get('userkey');
             $link->commit();
-        } catch (Exception $e) {
-            $result = false;
         } finally {
             return $result;
         }
@@ -213,7 +211,7 @@ class User
     {
         require_once "./../method/mysqlPreprocess.php";
         require "./../link/public/mysql.php";
-        $sql = "SELECT nickname,headshot,regtime,permissions,signtime,username,introduce
+        $sql = "SELECT nickname,headshot,regtime,permissions,signtime,username,introduce,nekoprice
                 from users where usertoken = ?";
         $result = mysqlPreprocess($link, $sql, 's', $this->usertoken);
         if ($result) {
@@ -223,10 +221,23 @@ class User
         }
     }
 
-
+    public function getusernumber($userkey): int|bool
+    {
+        require_once "./../method/mysqlPreprocess.php";
+        require "./../link/public/mysql.php";
+        $this->encryptuserkey($userkey);
+        $sql = "SELECT usernumber from users where usertoken = ?";
+        $result = mysqlPreprocess($link, $sql, 's', $this->usertoken);
+        if (empty($result)) {
+            return false;
+        }
+        $number = $result[0]['usernumber'];
+        $this->usernumber = $number;
+        return $number;
+    }
 
     //设置用户token
-    public function updatatoken($userip, $useragent)
+    public function updatatoken($userip, $useragent): bool
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
@@ -247,7 +258,7 @@ class User
 
 
     //更新用户签到时间
-    public function checksignin()
+    public function checksignin(): bool
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
@@ -300,11 +311,11 @@ class User
     }
 
     //更新用户简介信息
-    public function updateNicknameIntroudce($userip, $useragent)
+    public function updateNicknameIntroudce()
     {
         require "./../link/public/mysql.php";
         require_once "./../method/mysqlPreprocess.php";
-        $this->encryptuserkey($userip, $useragent);
+        $this->encryptuserkey($this->userkey);
         $sql = "UPDATE users
                 set nickname = ?,introduce = ?
                 where usertoken = ?";
@@ -318,10 +329,29 @@ class User
     }
 
     //获取用户key,ip,agent,将key转换成token
-    private function encryptuserkey($userip, $useragent)
+    private function encryptuserkey($userkey)
     {
-        require_once "./../method/encrypt.php";
-        $this->set('usertoken', encrypt($this->userkey, $userip . $useragent));
-        return $this->get('usertoken');
+        require_once './../method/encrypt.php';
+        require_once './../method/getuserip.php';
+        $token = getUserIP() . $_SERVER['HTTP_USER_AGENT'];
+        $usertoken = encrypt($userkey, $token);
+        $this->set('usertoken', $usertoken);
+        return $usertoken;
+    }
+
+    public function usercollection()
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        try {
+            $data = [];
+            $sql = "SELECT collectionid,nickname,itemnumber,itemname,itemcover,collectiontime
+                from view_collection 
+                where usernumber = ?
+                order by collectionid desc"; //查询语句
+            $data = mysqlPreprocess($link, $sql, 's', $this->usernumber);
+        } finally {
+            return $data;
+        }
     }
 }

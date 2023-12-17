@@ -28,40 +28,9 @@
         <div class="main">
             <?php require "./php/link/main/main-content.php"; ?>
             <div class="content-button">
-                <div class="content-button-heart"><i class="fa-regular fa-heart"></i></div>
-                <div class="content-button-collection"><i class="fa-regular fa-star"></i></div>
+                <div class="content-button-heart"><i class="fa-solid fa-heart"></i></div>
+                <div class="content-button-collection"><i class="fa-solid fa-star"></i></div>
             </div>
-            <style>
-                .content-button {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-top: 200px;
-                }
-
-                .content-button>div {
-                    width: 40px;
-                    height: 40px;
-                    border: 2px solid #f8f8f8;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    overflow: hidden;
-                    margin: 0 100px;
-                }
-
-                .content-button>div>i {
-                    font-size: 36px;
-                    color: #f2f2f2;
-                }
-
-                .content-button>div>.fa-heart {
-                    margin-top: 5px;
-                    margin-right: 1px;
-                    font-size: 38px;
-                }
-            </style>
         </div>
         <div class="main_right">
             <?php require "./php/link/main/author.php"; ?>
@@ -75,6 +44,7 @@
             <li><button>&ensp;外部链接&ensp;</button></li>
         </ul>
     </div>
+    <?php require './php/link/main/comment.php' ?>
     <!--背景动画-->
     <div class="video"><video src="./images/video/Nowa.mp4" autoplay="autoplay" loop="loop" muted="muted" class="video"></video></div>
     <!--页脚-->

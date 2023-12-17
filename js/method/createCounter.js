@@ -1,16 +1,21 @@
-const createCounter = function(init = 0) {
+/**
+ * 
+ * @param {int} init 
+ * @return {counter:object}
+ */
+const createCounter = function (init = 0) {
     const counter = {
-        counterStart:init,
-        increment:function(){
+        counterStart: init,
+        increment: function () {
             return ++init
         },
-        decrement:function(){
+        decrement: function () {
             return --init
         },
-        reset:function(){
+        reset: function () {
             return init = this.counterStart
         },
-        getcrement(){
+        getcrement() {
             return init;
         }
     }

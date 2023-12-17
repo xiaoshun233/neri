@@ -1,9 +1,12 @@
 import { loadXMLDoc } from "./ajax.js";
 import { getCookie } from "./cookie.js"
-
-function checklogin(){
+/**
+ * 检查用户是否登录
+ * @returns {boolean}
+ */
+function checklogin() {
     const userkey = getCookie('userkey');
-    let result = loadXMLDoc('./../../php/interface/checklogin.php',userkey)
+    let result = loadXMLDoc('./../../php/interface/checklogin.php', userkey)
     return result;
 }
-export {checklogin}
+export { checklogin }
