@@ -51,7 +51,7 @@ class User
                     where (username = ? and password = ?) or (useremail = ? and password = ?);";
             $row = mysqlPreprocess($link, $sql, "ssss", $this->username, $this->password, $this->username, $this->password);
             if (empty($row)) {
-                throw new Exception('用户不存在');
+                throw new Exception('用户名或密码错误');
             }
             if (!($this->updatatoken($userip, $useragent))) {
                 throw new Exception('更新用户token失败');
@@ -352,6 +352,23 @@ class User
             $data = mysqlPreprocess($link, $sql, 's', $this->usernumber);
         } finally {
             return $data;
+        }
+    }
+    public function deleteCollection($collectionid)
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        try {
+            $sql = "DELETE from collection where usernumber = ? and collectionid = ?";
+            $result = mysqlPreprocess($link, $sql, 'ii', $this->usernumber, $collectionid);
+            if (!$result) {
+                throw new Exception('delete collection fail');
+            }
+            $link->commit();
+            return true;
+        } catch (Exception $e) {
+            $link->rollback();
+            return false;
         }
     }
 }

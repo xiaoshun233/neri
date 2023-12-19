@@ -15,12 +15,8 @@ try {
         throw new Exception('userkey and token is not equal');
     }
     $user = new User();
-
     $user->getusernumber($data->userkey);
     $result['result'] = $user->usercollection();
-    if (empty($result['result'])) {
-        throw new Exception('usercollection is null');
-    }
     $result['status'] = true;
     $result['msg'] = 'success';
 } catch (Exception $e) {

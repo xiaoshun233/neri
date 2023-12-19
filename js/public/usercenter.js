@@ -110,7 +110,21 @@ window.addEventListener('load', function () {
                     </a>
                     <div class="item-collection-time"><span class="time">收藏于:${element['collectiontime']}</span></div>
                     <div class="item-collection-cancel"><span class="cancel" data-id="${element['collectionid']}">取消收藏</span></div>
-                </div>`
+                </div>`;
+                let cancelbutton = document.querySelectorAll(`.item-collection-cancel .cancel`);
+                function cancelcollection() {
+                    let collectionid = this.dataset.id;
+                    let result = loadXMLDoc('../../php/interface/delete-usercollect.php', { userkey: userkey, collectionid: collectionid }, 'post');
+                    if (!result['status']) {
+                        throw new Error('取消收藏失败');
+                    }
+                    const popup = new Popup();
+                    popup.alert('neri的小窝', '取消收藏成功');
+                    setTimeout(() => location.reload(), 2000);
+                }
+                cancelbutton.forEach(element => {
+                    element.addEventListener('click', cancelcollection);
+                });
             });
         }
     }
