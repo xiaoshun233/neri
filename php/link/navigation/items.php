@@ -12,7 +12,7 @@ if (!empty($where)) :
     }
     //检测空值,填充、获取页数
     $start_from = ($page - 1) * $num_rec_per_page; //从8*page开始获取，成页数比例增长
-    $sql = "SELECT name,headshot,nickname,cover,itemnumber,hits,collection,praise,type,comments
+    $sql = "SELECT name,headshot,nickname,cover,itemnumber,hits,collection,praise,type,comments,praise
             from view_items 
             where FIND_IN_SET(itemnumber,?)
             order by itemnumber desc 
@@ -38,8 +38,9 @@ if (!empty($where)) :
                 <span class='list_title'><?php echo $value['type']; ?></span>
                 <div class='lists'>
                     <span class='item_list1'><i class='fa-regular fa-eye'></i><?php echo $value["hits"]; ?></span>
-                    <span class='item_list2'><i class='fa-regular fa-comment'></i><?php echo $value["comments"]; ?></span>
-                    <span class='item_list3'><i class='fa-regular fa-star'></i><?php echo $value["collection"]; ?></span>
+                    <span class='item_list2'><i class='fa-regular fa-heart'></i><?php echo $value["praise"]; ?></span>
+                    <span class='item_list3'><i class='fa-regular fa-comment'></i><?php echo $value["comments"]; ?></span>
+                    <span class='item_list4'><i class='fa-regular fa-star'></i><?php echo $value["collection"]; ?></span>
                 </div>
             </div>
         </div>

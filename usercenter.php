@@ -128,6 +128,8 @@
                 // require "./php/link/usercenter/item-alteremail.php";
             } else if ($page == "alterpassword") {
                 // require "./php/link/usercenter/item-alterpassword.php";
+            } else {
+                require "./php/link/usercenter/item-mydata.php";
             }
             ?>
         </div>

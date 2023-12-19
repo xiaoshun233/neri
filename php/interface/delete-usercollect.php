@@ -1,5 +1,5 @@
 <?php
-require_once './../class/Article.class.php';
+require_once './../class/User.class.php';
 $result = ["result" => "", "status" => false, "msg" => ""];
 try {
     if (!isset($_POST['data'])) {
@@ -16,7 +16,7 @@ try {
         throw new Exception('number can not is zero');
     }
     $user = new User();
-    $user->getusernumber($userkey);
+    $user->getusernumber($data->userkey);
     $checkdelete = $user->deleteCollection($number);
     if (!$checkdelete) {
         throw new Exception('delete collection fail');

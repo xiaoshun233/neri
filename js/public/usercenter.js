@@ -131,7 +131,7 @@ window.addEventListener('load', function () {
     catch (err) {
         const popup = new Popup();
         popup.alert('neri的小窝', err);
-        setTimeout(() => location.href = 'login.php', 2000);
+        // setTimeout(() => location.href = 'login.php', 2000);
         return;
     }
     finally {

@@ -3,24 +3,22 @@ include_once './php/method/mysqlPreprocess.php';
 if (!empty($where) && $total_records != 0) :
     //获取最大页数
     $total_pages = ceil($total_records / $num_rec_per_page);
-    if ($page == 1 && $total_pages - $page != 0) {
-        $arr = [1, 2, 3];
-        if ($total_pages != 3) {
-            $max = $total_pages;
-        }
-    } else if ($total_pages - $page == 1) {
-        $arr = [$page - 1, $page, $page + 1];
-    } else if ($total_pages - $page <= 0) {
-        if ($total_pages == 1) {
-            $arr = [1];
+    if ($page > $total_pages) {
+        $page = $total_pages;
+    }
+    if ($total_pages - $page < 2) {
+        if ($page == 1) {
+            $arr = range($page, $total_pages);
         } else {
-            $arr = [$page - 1, $page];
+            $arr = range($page - 1, $total_pages);
         }
     } else {
-        $arr = [$page - 1, $page, $page + 1];
-        if ($page <= $total_pages) {
-            $max = $total_pages;
+        if ($page == 1) {
+            $arr = range($page, $page + 2);
+        } else {
+            $arr = range($page - 1, $page + 1);
         }
+        $max = $total_pages;
     }
 ?>
     <a class='next' href='navigation.php?<?php echo $where ?>&page=1'>首页</a>

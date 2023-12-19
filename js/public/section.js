@@ -42,12 +42,11 @@ window.addEventListener('load', function () {
             number: getQueryString('number')
         }
         let result = loadXMLDoc('../../php/interface/downloadaddress.php', downloadform, 'post');
-        if (result['status']) {
-            downloadaddress = [result['result']['baidu_link'], result['result']['od_link']];
-            result = null;
+        if (result) {
+            downloadaddress = [result['baidu_link'], result['od_link']];
         }
         else {
-            downloadaddress = [result['msg'], result['msg']];
+            downloadaddress = ["", ""]
         }
 
 
@@ -68,11 +67,11 @@ window.addEventListener('load', function () {
                     number: getQueryString('number')
                 }
                 let result = loadXMLDoc('../../php/interface/add-Articlecollection.php', data, 'post');
-                if (result) {
+                if (result['status']) {
                     tips.alert('neri的小窝', '收藏成功');
                 }
                 else {
-                    tips.alert('neri的小窝', '已收藏');
+                    tips.alert('neri的小窝', result['msg']);
                 }
             })
             tips.confirm('neri的小窝', '你确定要收藏吗？');
