@@ -6,9 +6,9 @@ import { loadXMLDoc } from './ajax.js';
  */
 function exitlogin() {
     try {
-        setCookie('userkey', '', -3600);
+        setCookie('userkey', '', -7200);
         loadXMLDoc('./../../php/interface/exitlogin.php', true);
-        location.reload();
+        location.href = 'index.php';
         return true;
     }
     catch (e) {

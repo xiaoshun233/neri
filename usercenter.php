@@ -24,7 +24,10 @@
         <div id='user-nav'>
             <div id="user-nav-top">
                 <div id="user-headshot">
+                    <div class="user-upload-canvas"></div>
                     <img src="images/head_img/head_normal.png" alt="headshot">
+                    <label class="headshot-replace-icon btn-box"><i class="fa-solid fa-camera fa-xl"></i></label>
+                    <input type="file" id="select-box" style="display: none;" id="replace-headshot" accept="image/*">
                 </div>
                 <div id="user-nickname">
                     <span>昵称</span>
@@ -113,9 +116,9 @@
             } else if ($page == "collection") {
                 require "./php/link/usercenter/item-collection.php";
             } else if ($page == "contribute") {
-                // require "./php/link/usercenter/item-contribute.php";
+                require "./php/link/usercenter/item-contribute.php";
             } else if ($page == "comment") {
-                // require "./php/link/usercenter/item-comment.php";
+                require "./php/link/usercenter/item-comment.php";
             } else if ($page == "buy") {
                 require "./php/link/usercenter/item-buy.php";
             } else if ($page == "support") {
@@ -141,6 +144,7 @@
     </div>
     <!--侧边按钮-->
     <?php require "./php/link/public/sidebutton.php"; ?>
+    <?php require "./php/link/public/cropperjs.php"; ?>
 </body>
 <script src="./js/public/usercenter.js" type="module"></script>
 <script src="./js/public/public.js" type="module"></script>

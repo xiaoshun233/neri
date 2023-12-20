@@ -1,8 +1,6 @@
 <?php
 require_once "./../method/checkString.php";
-require_once "./../method/mysqlPreprocess.php";
 require_once "./../class/User.class.php";
-require_once "./../link/public/mysql.php";
 require_once "./../method/checklogin.php";
 $result =  ["result" => "", "status" => false, "msg" => ""];
 try {

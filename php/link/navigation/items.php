@@ -30,8 +30,10 @@ if (!empty($where)) :
             </a>
             <div class='item_center'>
                 <div class='author'>
-                    <img src='<?php echo $value["headshot"]; ?>'>
-                    <span><?php echo $value["nickname"]; ?></span>
+                    <a href="navigation.php?s=<?php echo $value['nickname']; ?>&ta=author">
+                        <img src='<?php echo $value["headshot"]; ?>'>
+                        <span><?php echo $value["nickname"]; ?></span>
+                    </a>
                 </div>
             </div>
             <div class='item_bottom'>

@@ -321,3 +321,20 @@ function getmailtoken() {
         enrolltips.innerHTML = "发送验证码失败";
     }
 }
+//创建头像弹出框
+let popover_view;
+function view_headshot() {
+    setTimeout(function () {
+        const view = document.getElementById('view')
+        popover_view = new bootstrap.Popover(view, {
+            placement: "right",
+            trigger: "hover focus click",
+            html: true,
+            content: "<img src='" + baseSrc + "' class='view_img'>",
+            container: ".login_input"
+        })
+        view.innerHTML = "查看头像"
+    }, 0);
+}
+const success = document.querySelector('.cropperSucess');
+success.addEventListener('click', view_headshot);

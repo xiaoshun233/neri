@@ -49,7 +49,7 @@
             <p class="prompt_1">昵称:</p>
             <input type="text" class="login_textarea_3" title="昵称长度为4-10个英文,数字,汉字">
             <p class="prompt_1">上传头像:</p>
-            <input type="file" id="select-box" style="display: none;" id="file_head" accept="image/*" name="file">
+            <input type="file" id="select-box" style="display: none;" id="file_head" accept="image/*">
             <label class="login_textarea">
                 <div class="login-button"><span class="btn-box">上传</span></div>
                 <span id="view">点击左侧上传头像</span>

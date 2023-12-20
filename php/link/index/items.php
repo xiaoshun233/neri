@@ -17,8 +17,10 @@ foreach ($data as $value) :
         </a>
         <div class='item_center'>
             <div class='author'>
-                <img data-src='<?php echo $value["headshot"]; ?>'>
-                <span><?php echo $value["nickname"]; ?></span>
+                <a href="navigation.php?s=<?php echo $value['nickname']; ?>&ta=author">
+                    <img data-src='<?php echo $value["headshot"]; ?>'>
+                    <span><?php echo $value["nickname"]; ?></span>
+                </a>
             </div>
         </div>
         <div class='item_bottom'>

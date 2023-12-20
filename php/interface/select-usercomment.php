@@ -15,7 +15,7 @@ try {
     }
     $user = new User();
     $user->getusernumber($data->userkey);
-    $result['result'] = $user->usercollection();
+    $result['result'] = $user->usercomment();
     $result['status'] = true;
     $result['msg'] = 'success';
 } catch (Exception $e) {

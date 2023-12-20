@@ -113,16 +113,19 @@ window.addEventListener('load', function () {
                 number: getQueryString('number'),
                 comment: comment.value
             }
-            let result = loadXMLDoc('../../php/interface/add-comment.php', data, 'post');
-            if (result['status']) {
-                tips.alert('neri的小窝', '评论成功');
-                setTimeout(function () {
-                    location.reload();
-                }, 1000)
-            }
-            else {
-                tips.alert('neri的小窝', '评论失败');
-            }
+            tips.setyescollback(function () {
+                let result = loadXMLDoc('../../php/interface/add-comment.php', data, 'post');
+                if (result['status']) {
+                    tips.alert('neri的小窝', '评论成功');
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000)
+                }
+                else {
+                    tips.alert('neri的小窝', '评论失败');
+                }
+            })
+            tips.confirm('neri的小窝', '你确定要评论吗？');
         }
 
     }

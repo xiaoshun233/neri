@@ -15,9 +15,13 @@ try {
     }
     $user = new User();
     $user->getusernumber($data->userkey);
-    $result['result'] = $user->usercollection();
-    $result['status'] = true;
-    $result['msg'] = 'success';
+    $user->set('headshotData', $data->headshot);
+    $result['status'] = $user->updateheadshot();
+    if ($result['status']) {
+        $result['msg'] = 'update headshot success';
+    } else {
+        $result['msg'] = 'update headshot failed';
+    }
 } catch (Exception $e) {
     $result['msg'] = $e->getMessage();
 } finally {

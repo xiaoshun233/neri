@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="js/node_modules/cropperjs/dist/cropper.css">
+<link rel="stylesheet" href="css/cropper.css">
 <script src="./js/node_modules/cropperjs/dist/cropper.js"></script>
 <!-- 裁剪图片弹窗 -->
 <div class="module-cropper" style="display: none;">
@@ -6,7 +7,7 @@
         <div class="module-cropper-bg">
             <!-- 包装图像或画布元素 -->
             <div class="cropper-img-box">
-                <img id="cropperImg" src=""/>
+                <img id="cropperImg" src="" />
             </div>
         </div>
         <div class="module-cropper-btn">

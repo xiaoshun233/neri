@@ -136,6 +136,9 @@ class User
             if (!$headshotdata) {
                 //提取后缀名
                 $type_name = getimgsuffix($this->headshotData);
+                if (empty($type_name) || !preg_match('/^(jpg|bmp|gif|ico|pcx|jpeg|tif|png|raw|tga)$/', $type_name)) {
+                    throw new Exception('图片格式不正确');
+                }
                 //分割字符串,取basesrc后面的内容解码
                 $file_head = explode(',', $this->headshotData);
                 //base64解码
@@ -354,6 +357,7 @@ class User
             return $data;
         }
     }
+
     public function deleteCollection($collectionid)
     {
         require "./../link/public/mysql.php";
@@ -367,6 +371,105 @@ class User
             $link->commit();
             return true;
         } catch (Exception $e) {
+            $link->rollback();
+            return false;
+        }
+    }
+
+    public function deleteComment($commentid)
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        try {
+            $sql = "DELETE from comments where usernumber = ? and commentid = ?";
+            $result = mysqlPreprocess($link, $sql, 'ii', $this->usernumber, $commentid);
+            if (!$result) {
+                throw new Exception('delete comment fail');
+            }
+            $link->commit();
+            return true;
+        } catch (Exception $e) {
+            $link->rollback();
+            return false;
+        }
+    }
+
+    public function usercontribute()
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        try {
+            $data = [];
+            $sql = "SELECT itemnumber,name as itemname,cover as itemcover,collection,comments,praise,hits
+                from view_items 
+                where authornumber = ?
+                order by itemnumber desc"; //查询语句
+            $data = mysqlPreprocess($link, $sql, 's', $this->usernumber);
+        } finally {
+            return $data;
+        }
+    }
+
+    public function usercomment()
+    {
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        try {
+            $data = [];
+            $sql = "SELECT content,itemnumber,itemname,commenttime,commentid
+                from view_comments 
+                where usernumber = ?
+                order by commentid desc"; //查询语句
+            $data = mysqlPreprocess($link, $sql, 's', $this->usernumber);
+        } finally {
+            return $data;
+        }
+    }
+
+    public function updateheadshot()
+    {
+        require_once "./../method/base64Img.php";
+        require "./../link/public/mysql.php";
+        require_once "./../method/mysqlPreprocess.php";
+        try {
+            $updataflag = false;
+            $sql = "SELECT username,headshot from users where usernumber = ?";
+            $result = mysqlPreprocess($link, $sql, 's', $this->usernumber)[0];
+            if (empty($result)) {
+                throw new Exception('用户不存在');
+            }
+            $this->username = $result['username'];
+            if ($result['headshot'] !== 'images/head_img/head_normal.png') {
+                $this->headshotPath = $result['headshot'];
+            } else {
+                $type_name = getimgsuffix($this->headshotData);
+                if (empty($type_name) || !preg_match('/^(jpg|bmp|gif|ico|pcx|jpeg|tif|png|raw|tga)$/', $type_name)) {
+                    throw new Exception('图片格式不正确');
+                }
+                $this->headshotPath = 'images/head_img/' . iconv('UTF-8', 'gbk', basename('head_' . (md5($this->username)) . '.' . $type_name));
+                $updataflag = true;
+            }
+            $file_head = explode(',', $this->headshotData);
+            $data = base64_decode($file_head[1]);
+            $filePutCheck = file_put_contents("./../../{$this->headshotPath}", $data);
+            if (!$filePutCheck) {
+                throw new Exception('文件写入失败');
+            }
+            if ($updataflag) {
+                $sql = "UPDATE users 
+                        set headshot = ? 
+                        where usernumber = ?";
+                $checkupdate = mysqlPreprocess($link, $sql, 'si', $this->headshotPath, $this->usernumber);
+                if (!$checkupdate) {
+                    throw new Exception('更新失败');
+                }
+            }
+            $link->commit();
+            return true;
+        } catch (Exception $e) {
+            if ($updataflag) {
+                unlink("./../../{$this->headshotPath}");
+            }
             $link->rollback();
             return false;
         }

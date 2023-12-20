@@ -24,7 +24,7 @@ try {
     $result['status'] = true;
     $result['msg'] = 'success';
 } catch (Exception $e) {
-    $result = false;
+    $result['msg'] = $e->getMessage();
 } finally {
     echo json_encode($result);
 }

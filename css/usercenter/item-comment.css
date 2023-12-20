@@ -1,0 +1,70 @@
+#item-comment {
+    width: 95%;
+    margin: 20px auto;
+    overflow-y: scroll;
+}
+
+.item-comment-title {
+    display: flex;
+    font-size: 16px;
+    border-bottom: 1px solid #aaaaaa;
+    padding-bottom: 10px;
+    font-weight: 1000;
+}
+
+.item-comment-list {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #aaaaaa;
+    color: #bbbbbb;
+    font-size: 12px;
+}
+
+.item-comment-content {
+    margin-left: 10px;
+    width: 40%;
+    text-align: left;
+    color: #000;
+}
+
+.item-comment-articlename {
+    width: 22%;
+    text-align: center;
+    padding: 0 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.item-comment-commentid {
+    width: 15%;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.item-comment-ordertime {
+    width: 17%;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.item-comment-check {
+    width: 8%;
+    text-align: center;
+
+    padding: 0 5px;
+    color: #222;
+}
+
+.item-comment-check>span {
+    text-decoration: underline;
+}
+
+.item-comment-check span:hover {
+    cursor: pointer;
+    color: #000;
+}
+
+#item-comment>div:nth-child(even) {
+    background-color: #f2f2f2;
+}

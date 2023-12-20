@@ -39,8 +39,20 @@
 }
 
 #user-headshot {
-    text-align: center;
-    margin-top: 10%;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 10% auto 0 auto;
+}
+
+#user-headshot-input {
+    display: none;
+}
+
+.headshot-replace-icon {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
 }
 
 #user-headshot img {
