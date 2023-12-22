@@ -1,7 +1,6 @@
 #item-comment {
     width: 95%;
     margin: 20px auto;
-    overflow-y: scroll;
 }
 
 .item-comment-title {

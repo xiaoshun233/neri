@@ -1,7 +1,6 @@
 .item-collection {
-    width: 95%;
+    width: 100%;
     padding: 10px auto;
-    overflow-y: scroll;
 }
 
 .item-collection-div {

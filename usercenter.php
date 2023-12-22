@@ -122,7 +122,7 @@
             } else if ($page == "buy") {
                 require "./php/link/usercenter/item-buy.php";
             } else if ($page == "support") {
-                // require "./php/link/usercenter/item-support.php";
+                require "./php/link/usercenter/item-support.php";
             } else if ($page == "record") {
                 // require "./php/link/usercenter/item-record.php";
             } else if ($page == "permission") {
