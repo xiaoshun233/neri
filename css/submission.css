@@ -206,13 +206,13 @@ body {
     margin: 0 10px;
 }
 
-.add_outlink svg {
+.add_outlink i {
     margin-left: 40px;
     margin-bottom: 5px;
     /* border: 2px #414141 solid; */
 }
 
-.add_outlink svg:hover {
+.add_outlink i:hover {
     color: #c40f25;
 }
 

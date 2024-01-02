@@ -247,11 +247,11 @@ function signIn() {
         enrolltips.innerHTML = result['msg'];
         setTimeout(() => {
             location.reload();
-        }, 3000)
+        }, 1000)
     }
     else {
         enrolltips.innerHTML = result['msg'];
-        enrollBtn.addEventListener('click', signIn)
+        enrollBtn.addEventListener('click', signIn);
     }
 }
 
@@ -313,13 +313,15 @@ function getmailtoken() {
         }
     }, 1000)
     const email = document.querySelector('.login-mail').value
-    let result = loadXMLDoc('../../php/interface/emailcode.php', email);
-    if (result) {
-        enrolltips.innerHTML = "发送验证码成功";
-    }
-    else {
-        enrolltips.innerHTML = "发送验证码失败";
-    }
+    new Promise(() => {
+        let result = loadXMLDoc('../../php/interface/emailcode.php', email);
+        if (result) {
+            enrolltips.innerHTML = "发送验证码成功";
+        }
+        else {
+            enrolltips.innerHTML = "发送验证码失败";
+        }
+    })
 }
 //创建头像弹出框
 let popover_view;

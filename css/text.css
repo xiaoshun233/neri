@@ -254,10 +254,20 @@ body {
 }
 
 /* 外部链接段落 */
-.content_4 p {
+.content_4 div {
     text-indent: 0em;
     line-height: 40px;
-    margin-left: 3em;
+    margin: 0 auto;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+}
+
+.outlink-div>a {
+    color: #007BFF;
+    text-decoration: underline;
 }
 
 .content-button {

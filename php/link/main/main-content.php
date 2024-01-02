@@ -49,19 +49,16 @@
 </div>
 <div class="content_4" id="content_4">
     <h3 id="turn_4">外部链接</h3>
-    <p style="text-indent: 0;">
-        <?php
-        if (isset($data['inbound_link'])) { //检查查询是否为空
-            $outlink = $data['inbound_link'];
-            $outlink = explode(',', $outlink);;
-            for ($i = 0; $i < count($outlink); $i++) {
-                if ($i % 2 == 0) {
-                    echo "{$outlink[$i]}:";
-                } else {
-                    echo "<a href='{$outlink[$i]}' target='_blank'>{$outlink[$i]}</a><br>";
-                }
-            }
-        }
-        ?>
-    <p>
+    <?php
+    if (isset($data['inbound_link'])) { //检查查询是否为空
+        $outlink = $data['inbound_link'];
+        $outlink = explode(',', $outlink);;
+        for ($i = 0; $i < count($outlink) / 2; $i++) :
+    ?>
+            <div class="outlink-div">
+                <span><?php echo $outlink[$i * 2]; ?>:</span>
+                <a href='<?php echo $outlink[$i * 2 + 1]; ?>'><?php echo $outlink[$i * 2 + 1]; ?></a>
+            </div>
+    <?php endfor;
+    } ?>
 </div>

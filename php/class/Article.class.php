@@ -48,14 +48,12 @@ class Article
         require './../link/public/mysql.php';
         require_once './../method/mysqlPreprocess.php';
         // 提交基础信息
-        $row = mysqlPreprocess($link, "SELECT count(name) as count from items", false);
-        $this->number = intval($row[0]['count']) + 1;
         $regbase64 = '/[:;,]/'; //分割base64图片
         $cover = preg_split($regbase64, $this->cover);
         $coverType = str_replace('image/', '', $cover[1]);
         $this->coverpath = 'images/' . $this->type . '_img/' . iconv('UTF-8', 'gbk', basename($this->type . '_' . (md5($this->name)) . '.' . $coverType)); //储存位置和命名
-        $sql = "INSERT into items (name,cover,author,type,number) values (?,?,?,?,?)";
-        $row = mysqlPreprocess($link, $sql, 'sssss', $this->name, $this->coverpath, $this->author, $this->type, $this->number);
+        $sql = "INSERT into items (name,cover,author,type) values (?,?,?,?)";
+        $row = mysqlPreprocess($link, $sql, 'ssss', $this->name, $this->coverpath, $this->author, $this->type);
         if (!$row) {
             $link->rollback();
             return false;

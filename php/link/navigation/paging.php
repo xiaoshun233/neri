@@ -6,7 +6,7 @@ if (!empty($where) && $total_records != 0) :
     if ($page > $total_pages) {
         $page = $total_pages;
     }
-    if ($total_pages - $page < 2) {
+    if ($total_pages - $page <= 2) {
         if ($page == 1) {
             $arr = range($page, $total_pages);
         } else {

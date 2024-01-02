@@ -130,7 +130,7 @@ var Paul_Pio = function (prop) {
         buttons: function () {
             // 返回首页
             elements.home.onclick = function () {
-                location.href = 'www.neri.com';
+                location.href = 'index.php';
             };
             elements.home.onmouseover = function () {
                 modules.render(prop.content.home || "点击这里回到首页！");
