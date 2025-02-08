@@ -49,13 +49,13 @@
 <p>⑤低版本php出现头像不能实时更新问题：php比8.2.0版本低的版本可能不支持函数定义两个返回值类型,7.4.2版本仅支持一个返回值类型</p>
 
 ###项目作品图片展示
-<div class="show"><img title="image-index" src="./images/show/index.jpeg"></div>
-<div class="show"><img title="image-login" src="./images/show/login.jpeg"></div>
-<div class="show"><img title="image-search" src="./images/show/search.jpeg"></div>
-<div class="show"><img title="image-content" src="./images/show/content.jpeg"></div>
-<div class="show"><img title="image-navigation" src="./images/show/navigation.jpeg"></div>
-<div class="show"><img title="image-usercenter" src="./images/show/usercenter.jpeg"></div>
-<div class="show"><img title="image-submission" src="./images/show/submission.jpeg"></div>
+![image-index](./images/show/index.jpeg)
+![image-login](./images/show/login.jpeg)
+![image-search](./images/show/search.jpeg)
+![image-content](./images/show/content.jpeg)
+![image-navigation](./images/show/navigation.jpeg)
+![image-usercenter](./images/show/usercenter.jpeg)
+![image-submission](./images/show/submission.jpeg)
 
 
 <style>
