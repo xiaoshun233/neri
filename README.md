@@ -49,40 +49,10 @@
 <p>⑤低版本php出现头像不能实时更新问题：php比8.2.0版本低的版本可能不支持函数定义两个返回值类型,7.4.2版本仅支持一个返回值类型</p>
 
 ###项目作品图片展示
-![image-index](./images/show/index.jpeg)
-![image-login](./images/show/login.jpeg)
-![image-search](./images/show/search.jpeg)
-![image-content](./images/show/content.jpeg)
-![image-navigation](./images/show/navigation.jpeg)
-![image-usercenter](./images/show/usercenter.jpeg)
-![image-submission](./images/show/submission.jpeg)
-
-
-<style>
-    h3{
-        color:#eee !important;
-    }
-    body{
-        background-color:#000 !important;
-    }
-    p{
-        color:#b2b2b2;
-    }
-    path{
-        background-color:#e2e2e2 !important;
-        color:#000;
-        padding: 0 5px;
-    }
-    section{
-        color:#f8f8f8;
-        background-color:#2b2b2b !important;
-        display:inline;
-    }
-    .show{
-        max-height:300px;
-        border:3px solid #ffffff;
-        border-radius:2px;
-        overflow-y:scroll;
-        margin:20px auto;
-    }
-</style>
+![image-index](https://github.com/xiaoshun233/neri/blob/main/images/show/index.jpeg)
+![image-login](https://github.com/xiaoshun233/neri/blob/main/images/show/login.jpeg)
+![image-search](https://github.com/xiaoshun233/neri/blob/main/images/show/search.jpeg)
+![image-content](https://github.com/xiaoshun233/neri/blob/main/images/show/content.jpeg)
+![image-navigation](https://github.com/xiaoshun233/neri/blob/main/images/show/navigation.jpeg)
+![image-usercenter](https://github.com/xiaoshun233/neri/blob/main/images/show/usercenter.jpeg)
+![image-submission](https://github.com/xiaoshun233/neri/blob/main/images/show/submission.jpeg)
